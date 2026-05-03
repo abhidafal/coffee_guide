@@ -1,0 +1,2568 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Brewing Atlas · 7 Ways to Brew Lavazza Gusto Crema</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,500&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0907;
+    --bg-2: #16100b;
+    --surface: #1d1611;
+    --surface-2: #261d15;
+    --surface-3: #2f241a;
+    --border: #322820;
+    --border-soft: #261e16;
+    --text: #f5ede2;
+    --text-dim: #b8aa9b;
+    --text-muted: #8a7c6e;
+    --accent: #e89c4f;
+    --accent-2: #c2522a;
+    --accent-soft: #f4b878;
+    --accent-glow: rgba(232, 156, 79, 0.22);
+    --danger: #e07171;
+    --success: #8fcf8f;
+    --shadow-sm: 0 4px 12px -4px rgba(0, 0, 0, .4);
+    --shadow-md: 0 16px 32px -12px rgba(0, 0, 0, .5);
+    --shadow-lg: 0 30px 60px -20px rgba(0, 0, 0, .6), 0 12px 24px -10px rgba(0, 0, 0, .4);
+    --shadow-glow: 0 0 0 1px var(--accent), 0 0 32px -4px var(--accent-glow);
+    --ease: cubic-bezier(.22, .61, .36, 1);
+    --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+    --grain: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.45 0'/></filter><rect width='200' height='200' filter='url(%23n)'/></svg>");
+  }
+  [data-theme="light"] {
+    --bg: #f7f0e6;
+    --bg-2: #efe6d8;
+    --surface: #ffffff;
+    --surface-2: #fbf5ea;
+    --surface-3: #f3ead9;
+    --border: #e6d8c2;
+    --border-soft: #f0e5d0;
+    --text: #1d1610;
+    --text-dim: #4f4438;
+    --text-muted: #7a6a58;
+    --accent: #b8501f;
+    --accent-2: #8a3a14;
+    --accent-soft: #d57040;
+    --accent-glow: rgba(184, 80, 31, 0.14);
+    --shadow-sm: 0 4px 12px -4px rgba(80, 40, 10, .12);
+    --shadow-md: 0 16px 32px -12px rgba(80, 40, 10, .14);
+    --shadow-lg: 0 30px 60px -20px rgba(80, 40, 10, .18), 0 12px 24px -10px rgba(80, 40, 10, .10);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  *:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background .5s var(--ease), color .5s var(--ease);
+  }
+  html[lang="hi"] body, html[lang="mr"] body {
+    font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
+  }
+
+  /* Atmospheric background layers */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: var(--grain);
+    opacity: .25;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 1;
+  }
+  body::after {
+    content: "";
+    position: fixed;
+    top: -20%;
+    right: -10%;
+    width: 60vw;
+    height: 60vw;
+    max-width: 800px;
+    max-height: 800px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(40px);
+    opacity: .8;
+  }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ============ HEADER ============ */
+  header {
+    padding: 22px 0 18px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: color-mix(in srgb, var(--bg) 82%, transparent);
+    backdrop-filter: saturate(140%) blur(18px);
+    -webkit-backdrop-filter: saturate(140%) blur(18px);
+    z-index: 50;
+    transition: padding .3s var(--ease);
+  }
+  .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: transform .3s var(--ease);
+  }
+  .brand:hover { transform: translateY(-1px); }
+  .brand-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, var(--accent-soft), var(--accent-2) 65%, #3a1a08);
+    box-shadow: inset 0 0 0 2px var(--bg), 0 0 0 1px var(--accent), 0 0 32px var(--accent-glow);
+    position: relative;
+    flex-shrink: 0;
+    animation: pulseGlow 4s ease-in-out infinite;
+  }
+  @keyframes pulseGlow {
+    0%, 100% { box-shadow: inset 0 0 0 2px var(--bg), 0 0 0 1px var(--accent), 0 0 32px var(--accent-glow); }
+    50% { box-shadow: inset 0 0 0 2px var(--bg), 0 0 0 1px var(--accent), 0 0 44px var(--accent-glow); }
+  }
+  .brand-mark::after {
+    content: "";
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    background: var(--bg);
+    box-shadow: inset 0 0 0 1px var(--accent);
+  }
+  .brand-text h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(20px, 2.5vw, 26px);
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+  html[lang="hi"] .brand-text h1, html[lang="mr"] .brand-text h1 {
+    font-family: 'Noto Sans Devanagari', serif;
+  }
+  .brand-text p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+  .header-controls {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .lang-switch {
+    display: flex;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 3px;
+    box-shadow: var(--shadow-sm);
+  }
+  .lang-btn {
+    background: transparent;
+    border: 0;
+    padding: 7px 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 999px;
+    letter-spacing: 0.08em;
+    transition: all .3s var(--ease);
+    min-width: 38px;
+  }
+  .lang-btn:hover { color: var(--text); transform: translateY(-1px); }
+  .lang-btn.active {
+    background: var(--accent);
+    color: #1a0f06;
+    box-shadow: 0 4px 12px -2px var(--accent-glow);
+  }
+  .icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .35s var(--ease);
+    box-shadow: var(--shadow-sm);
+  }
+  .icon-btn:hover {
+    border-color: var(--accent);
+    background: var(--surface-2);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .icon-btn:active { transform: translateY(0); }
+  .icon-btn svg { width: 18px; height: 18px; transition: transform .4s var(--ease); }
+  #themeBtn:hover svg { transform: rotate(180deg); }
+  [data-theme="dark"] .sun-icon { display: block; }
+  [data-theme="dark"] .moon-icon { display: none; }
+  [data-theme="light"] .sun-icon { display: none; }
+  [data-theme="light"] .moon-icon { display: block; }
+  .voice-btn.muted { opacity: 0.5; }
+  .voice-btn .vol-on { display: block; }
+  .voice-btn .vol-off { display: none; }
+  .voice-btn.muted .vol-on { display: none; }
+  .voice-btn.muted .vol-off { display: block; }
+
+  /* ============ HERO ============ */
+  .hero {
+    padding: 72px 0 48px;
+    position: relative;
+    animation: fadeUpHero .8s var(--ease) both;
+  }
+  @keyframes fadeUpHero {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::before {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    animation: lineExpand 1s var(--ease) .3s both;
+  }
+  @keyframes lineExpand {
+    from { width: 0; opacity: 0; }
+    to { width: 36px; opacity: 1; }
+  }
+  .hero h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 300;
+    font-size: clamp(38px, 7vw, 76px);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    margin-bottom: 28px;
+  }
+  html[lang="hi"] .hero h2, html[lang="mr"] .hero h2 {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-weight: 500;
+    line-height: 1.18;
+  }
+  .hero h2 em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--accent);
+    background: linear-gradient(120deg, var(--accent) 0%, var(--accent-soft) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero-lead {
+    font-size: clamp(15px, 1.5vw, 17.5px);
+    color: var(--text-dim);
+    max-width: 640px;
+    line-height: 1.75;
+  }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 24px;
+    margin-top: 44px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+  .meta-item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .meta-item strong {
+    display: block;
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text);
+    text-transform: none;
+    letter-spacing: -0.015em;
+    margin-top: 6px;
+  }
+  html[lang="hi"] .meta-item strong, html[lang="mr"] .meta-item strong {
+    font-family: 'Noto Sans Devanagari', serif;
+  }
+
+  /* ============ SERVINGS BAR ============ */
+  .servings-bar {
+    margin-top: 36px;
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    box-shadow: var(--shadow-md);
+    transition: border-color .3s var(--ease), transform .3s var(--ease);
+  }
+  .servings-bar:hover {
+    border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  }
+  .servings-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .servings-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .servings-hint {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+  html[lang="hi"] .servings-hint, html[lang="mr"] .servings-hint {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+  .servings-control {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .serv-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all .25s var(--ease);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .serv-btn:hover:not(:disabled) {
+    background: var(--accent);
+    color: #1a0f06;
+    border-color: var(--accent);
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px -4px var(--accent-glow);
+  }
+  .serv-btn:active:not(:disabled) { transform: scale(0.95); }
+  .serv-btn:disabled { opacity: 0.3; cursor: not-allowed; }
+  .serv-display {
+    font-family: 'Fraunces', serif;
+    font-size: 30px;
+    font-weight: 500;
+    min-width: 60px;
+    text-align: center;
+    line-height: 1;
+    transition: transform .3s var(--ease-spring);
+  }
+  .serv-unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-top: 6px;
+    text-align: center;
+  }
+  .unit-toggle {
+    display: flex;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 3px;
+  }
+  .unit-btn {
+    background: transparent;
+    border: 0;
+    padding: 7px 13px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all .25s var(--ease);
+    letter-spacing: 0.05em;
+  }
+  .unit-btn:hover { color: var(--text); }
+  .unit-btn.active {
+    background: var(--accent);
+    color: #1a0f06;
+    box-shadow: 0 2px 8px -2px var(--accent-glow);
+  }
+
+  /* ============ TABS ============ */
+  .tabs-wrap {
+    padding: 22px 0 10px;
+    position: sticky;
+    top: 80px;
+    z-index: 40;
+    background: color-mix(in srgb, var(--bg) 90%, transparent);
+    backdrop-filter: saturate(140%) blur(14px);
+    -webkit-backdrop-filter: saturate(140%) blur(14px);
+  }
+  .tabs {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    padding: 5px;
+    background: linear-gradient(180deg, var(--surface), var(--surface-2));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    scrollbar-width: none;
+    box-shadow: var(--shadow-md);
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    background: transparent;
+    border: 0;
+    padding: 13px 20px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-radius: 11px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all .3s var(--ease);
+    flex-shrink: 0;
+    position: relative;
+  }
+  html[lang="hi"] .tab, html[lang="mr"] .tab {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+  .tab:hover {
+    color: var(--text);
+    background: var(--surface-3);
+  }
+  .tab.active {
+    background: var(--accent);
+    color: #1a0f06;
+    box-shadow: 0 6px 16px -4px var(--accent-glow);
+    transform: translateY(-1px);
+  }
+  .tab-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    opacity: 0.6;
+    letter-spacing: 0.05em;
+  }
+  .tab.active .tab-num { opacity: 1; }
+
+  /* ============ RECIPE PANELS ============ */
+  .recipe-panel {
+    display: none;
+    padding: 48px 0 80px;
+    animation: fadeUp .55s var(--ease);
+  }
+  .recipe-panel.active { display: block; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .recipe-header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 28px;
+    align-items: end;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 40px;
+  }
+  .recipe-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+  .recipe-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: clamp(30px, 5vw, 52px);
+    line-height: 1.04;
+    letter-spacing: -0.025em;
+  }
+  html[lang="hi"] .recipe-title, html[lang="mr"] .recipe-title {
+    font-family: 'Noto Sans Devanagari', serif;
+    font-weight: 500;
+  }
+  .recipe-title em {
+    font-style: italic;
+    background: linear-gradient(120deg, var(--accent), var(--accent-soft));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .recipe-summary {
+    color: var(--text-dim);
+    margin-top: 14px;
+    max-width: 580px;
+    font-size: 15.5px;
+    line-height: 1.7;
+  }
+  .recipe-difficulty {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: right;
+    align-self: end;
+  }
+  .difficulty-bars {
+    display: flex;
+    gap: 4px;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  .difficulty-bars span {
+    width: 16px;
+    height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    transition: background .4s var(--ease);
+  }
+  .difficulty-bars span.fill {
+    background: var(--accent);
+    box-shadow: 0 0 8px -1px var(--accent-glow);
+  }
+
+  /* ============ SPEC GRID ============ */
+  .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 44px;
+    box-shadow: var(--shadow-md);
+  }
+  .spec-cell {
+    background: var(--surface);
+    padding: 24px 22px;
+    transition: background .3s var(--ease), transform .3s var(--ease);
+    position: relative;
+  }
+  .spec-cell::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    transition: width .4s var(--ease);
+  }
+  .spec-cell:hover {
+    background: var(--surface-2);
+  }
+  .spec-cell:hover::before { width: 100%; }
+  .spec-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+  }
+  .spec-value {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    transition: color .35s var(--ease);
+  }
+  html[lang="hi"] .spec-value, html[lang="mr"] .spec-value {
+    font-family: 'Noto Sans Devanagari', serif;
+  }
+  .spec-value.scaled {
+    color: var(--accent);
+    animation: scalePulse .4s var(--ease-spring);
+  }
+  @keyframes scalePulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.06); }
+    100% { transform: scale(1); }
+  }
+  .spec-value small {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    margin-left: 5px;
+  }
+  .spec-sub {
+    font-size: 12.5px;
+    color: var(--text-dim);
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+
+  /* ============ SECTIONS / STEPS ============ */
+  .section { margin-bottom: 52px; }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  html[lang="hi"] .section-title, html[lang="mr"] .section-title {
+    font-family: 'Noto Sans Devanagari', serif;
+  }
+  .section-title::before {
+    content: attr(data-num);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    gap: 22px;
+    padding: 26px 0;
+    border-bottom: 1px dashed var(--border);
+    align-items: start;
+    transition: padding .3s var(--ease);
+  }
+  .step:hover { padding-left: 4px; }
+  .step:last-child { border-bottom: 0; }
+  .step-num {
+    font-family: 'Fraunces', serif;
+    font-size: 38px;
+    font-weight: 300;
+    line-height: 1;
+    color: var(--accent);
+    font-style: italic;
+    transition: transform .3s var(--ease-spring);
+  }
+  .step:hover .step-num { transform: scale(1.08) rotate(-3deg); }
+  .step-content h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 15.5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: -0.005em;
+  }
+  html[lang="hi"] .step-content h4, html[lang="mr"] .step-content h4 {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    font-weight: 700;
+  }
+  .step-content p {
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .step-timer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+    min-width: 132px;
+  }
+  .step-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 7px 13px;
+    border-radius: 9px;
+    white-space: nowrap;
+  }
+  .timer-btn {
+    background: var(--accent);
+    color: #1a0f06;
+    border: 0;
+    padding: 9px 15px;
+    border-radius: 9px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all .25s var(--ease);
+    white-space: nowrap;
+    box-shadow: 0 4px 12px -3px var(--accent-glow);
+  }
+  .timer-btn:hover {
+    background: var(--accent-2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -4px var(--accent-glow);
+  }
+  .timer-btn:active { transform: translateY(0); }
+  .timer-btn.running {
+    background: var(--surface);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    animation: timerPulse 2s ease-in-out infinite;
+  }
+  @keyframes timerPulse {
+    0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+    50% { box-shadow: 0 0 0 6px transparent; }
+  }
+  .timer-btn.done {
+    background: var(--success);
+    color: #0a200a;
+  }
+  .timer-btn svg { width: 11px; height: 11px; }
+
+  /* ============ INFO CARDS ============ */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .info-card {
+    background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: transform .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .info-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+  }
+  .info-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+  }
+  .tips-card::before {
+    background: linear-gradient(90deg, var(--accent), var(--accent-soft) 50%, transparent);
+  }
+  .tips-card:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--border)); }
+  .mistakes-card::before {
+    background: linear-gradient(90deg, var(--danger), transparent);
+  }
+  .mistakes-card:hover { border-color: color-mix(in srgb, var(--danger) 40%, var(--border)); }
+  .info-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  html[lang="hi"] .info-card h3, html[lang="mr"] .info-card h3 {
+    font-family: 'Noto Sans Devanagari', serif;
+  }
+  .info-card ul { list-style: none; }
+  .info-card li {
+    padding: 12px 0 12px 26px;
+    color: var(--text-dim);
+    font-size: 14.5px;
+    line-height: 1.65;
+    position: relative;
+    border-bottom: 1px dotted var(--border);
+    transition: color .25s var(--ease), transform .25s var(--ease);
+  }
+  .info-card li:hover {
+    color: var(--text);
+    transform: translateX(2px);
+  }
+  .info-card li:last-child { border-bottom: 0; }
+  .info-card li::before {
+    position: absolute;
+    left: 0;
+    top: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .tips-card li::before { content: "→"; color: var(--accent); }
+  .mistakes-card li::before { content: "✕"; color: var(--danger); }
+
+  /* ============ ALT CARD ============ */
+  .alt-card {
+    background: linear-gradient(135deg, var(--surface) 0%, var(--surface-3) 100%);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+    margin-top: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color .3s var(--ease);
+  }
+  .alt-card::after {
+    content: "";
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle, var(--accent-glow), transparent 60%);
+    opacity: .5;
+    pointer-events: none;
+  }
+  .alt-card:hover { border-color: color-mix(in srgb, var(--accent) 35%, var(--border)); }
+  .alt-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    color: var(--accent);
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+  html[lang="hi"] .alt-card h3, html[lang="mr"] .alt-card h3 {
+    font-family: 'Noto Sans Devanagari', serif;
+  }
+  .alt-card p {
+    color: var(--text-dim);
+    font-size: 15px;
+    line-height: 1.75;
+    position: relative;
+  }
+  .alt-card strong { color: var(--text); font-weight: 600; }
+
+  /* ============ GLOBAL TIMER ============ */
+  .global-timer {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--surface);
+    border: 1px solid var(--accent);
+    border-radius: 18px;
+    padding: 14px 18px;
+    box-shadow: var(--shadow-lg), 0 0 32px -8px var(--accent-glow);
+    display: none;
+    align-items: center;
+    gap: 16px;
+    z-index: 100;
+    font-family: 'JetBrains Mono', monospace;
+    transform: translateY(20px) scale(0.92);
+    opacity: 0;
+    transition: transform .4s var(--ease-spring), opacity .3s var(--ease);
+  }
+  .global-timer.visible {
+    display: flex;
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+  .global-timer-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 3px;
+  }
+  .global-timer-value {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: -0.015em;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .global-timer-stop {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .25s var(--ease);
+  }
+  .global-timer-stop:hover {
+    background: var(--danger);
+    border-color: var(--danger);
+    color: white;
+    transform: rotate(90deg);
+  }
+
+  /* ============ TOAST ============ */
+  .toast {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    background: var(--accent);
+    color: #1a0f06;
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: var(--shadow-lg);
+    z-index: 200;
+    transform: translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: all .35s var(--ease-spring);
+    max-width: 280px;
+  }
+  .toast.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  html[lang="hi"] .toast, html[lang="mr"] .toast {
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+
+  /* ============ FOOTER ============ */
+  footer {
+    padding: 48px 0 64px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+    position: relative;
+  }
+  footer p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* ============ RESPONSIVE — TABLET ============ */
+  @media (max-width: 960px) {
+    .wrap { padding: 0 24px; }
+    .hero { padding: 56px 0 40px; }
+    .recipe-panel { padding: 36px 0 64px; }
+    .spec-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+    .tabs-wrap { top: 76px; }
+  }
+
+  /* ============ RESPONSIVE — MOBILE LARGE ============ */
+  @media (max-width: 760px) {
+    .wrap { padding: 0 20px; }
+    header { padding: 16px 0 14px; }
+    .header-row { gap: 10px; }
+    .brand-mark { width: 38px; height: 38px; }
+    .brand-text h1 { font-size: 19px; }
+    .brand-text p { font-size: 10px; letter-spacing: 0.12em; }
+    .lang-btn { padding: 6px 11px; font-size: 10px; min-width: 34px; }
+    .icon-btn { width: 36px; height: 36px; }
+    .icon-btn svg { width: 16px; height: 16px; }
+
+    .hero { padding: 40px 0 28px; }
+    .hero h2 { margin-bottom: 22px; }
+    .hero-meta { gap: 18px; margin-top: 32px; padding-top: 24px; }
+    .meta-item strong { font-size: 20px; }
+
+    .servings-bar { padding: 16px 18px; gap: 14px; }
+    .servings-control { width: 100%; justify-content: space-between; }
+    .serv-display { font-size: 26px; min-width: 50px; }
+
+    .tabs-wrap { top: 72px; padding: 16px 0 8px; }
+    .tab { padding: 11px 16px; font-size: 12.5px; }
+
+    .recipe-header {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+    .recipe-difficulty { text-align: left; }
+    .difficulty-bars { justify-content: flex-start; }
+
+    .two-col { grid-template-columns: 1fr; gap: 20px; }
+
+    .step {
+      grid-template-columns: 44px 1fr;
+      gap: 16px;
+      padding: 22px 0;
+    }
+    .step-num { font-size: 30px; }
+    .step-timer {
+      grid-column: 1 / -1;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 60px;
+      margin-top: 4px;
+    }
+
+    .info-card, .alt-card { padding: 24px; }
+    .section-title { font-size: 21px; margin-bottom: 22px; }
+
+    .global-timer { bottom: 16px; right: 16px; left: 16px; padding: 12px 16px; }
+    .toast { bottom: 96px; right: 16px; left: 16px; max-width: none; }
+  }
+
+  /* ============ RESPONSIVE — MOBILE SMALL ============ */
+  @media (max-width: 460px) {
+    .wrap { padding: 0 16px; }
+    header { padding: 14px 0 12px; }
+    .header-row { gap: 8px; }
+    .brand { gap: 10px; }
+    .header-controls { gap: 6px; }
+
+    .hero { padding: 32px 0 24px; }
+    .hero h2 { font-size: clamp(32px, 9vw, 44px); }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 0.25em; margin-bottom: 16px; }
+
+    .servings-bar { padding: 14px 14px; }
+    .unit-toggle { padding: 2px; }
+    .unit-btn { padding: 6px 10px; font-size: 10px; }
+    .serv-btn { width: 34px; height: 34px; font-size: 16px; }
+
+    .spec-cell { padding: 18px 16px; }
+    .spec-value { font-size: 22px; }
+    .spec-sub { font-size: 12px; }
+
+    .info-card, .alt-card { padding: 20px; border-radius: 14px; }
+    .info-card h3, .alt-card h3 { font-size: 19px; }
+    .info-card li { font-size: 14px; padding: 10px 0 10px 22px; }
+
+    .step-timer { padding-left: 0; }
+    .step-content h4 { font-size: 15px; }
+    .step-content p { font-size: 14.5px; }
+  }
+
+  /* ============ MOTION SAFETY ============ */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-row">
+    <div class="brand">
+      <div class="brand-mark"></div>
+      <div class="brand-text">
+        <h1 data-i18n="brand">Brewing Atlas</h1>
+        <p data-i18n="brand_sub">Lavazza Gusto Crema · 7 Methods</p>
+      </div>
+    </div>
+    <div class="header-controls">
+      <div class="lang-switch">
+        <button class="lang-btn active" data-lang-set="en">EN</button>
+        <button class="lang-btn" data-lang-set="hi">हि</button>
+        <button class="lang-btn" data-lang-set="mr">मर</button>
+      </div>
+      <button class="icon-btn voice-btn" id="voiceBtn" aria-label="Toggle voice">
+        <svg class="vol-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+        <svg class="vol-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+      </button>
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">
+        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="hero wrap">
+  <div class="hero-eyebrow" data-i18n="hero_eyebrow">A Field Guide for Lavazza Gusto Crema</div>
+  <h2 data-i18n="hero_title">Seven ways to brew the <em>perfect cup</em>.</h2>
+  <p class="hero-lead" data-i18n="hero_lead"></p>
+  <div class="hero-meta">
+    <div class="meta-item"><span data-i18n="meta_roast">Roast</span><strong data-i18n="meta_roast_v">Medium</strong></div>
+    <div class="meta-item"><span data-i18n="meta_blend">Blend</span><strong data-i18n="meta_blend_v">70/30 Arabica</strong></div>
+    <div class="meta-item"><span data-i18n="meta_grind">Default Grind</span><strong data-i18n="meta_grind_v">Espresso Fine</strong></div>
+    <div class="meta-item"><span data-i18n="meta_methods">Methods</span><strong>07</strong></div>
+  </div>
+
+  <div class="servings-bar">
+    <div class="servings-info">
+      <div class="servings-label" data-i18n="serv_label">Brewing for</div>
+      <div class="servings-hint" data-i18n="serv_hint">All recipe quantities will scale automatically</div>
+    </div>
+    <div class="servings-control">
+      <div class="unit-toggle">
+        <button class="unit-btn active" data-unit="metric" data-i18n="unit_metric">Metric</button>
+        <button class="unit-btn" data-unit="imperial" data-i18n="unit_imperial">Imperial</button>
+      </div>
+      <button class="serv-btn" id="servMinus" aria-label="Decrease">−</button>
+      <div>
+        <div class="serv-display" id="servDisplay">1</div>
+        <div class="serv-unit" id="servUnit">SERVING</div>
+      </div>
+      <button class="serv-btn" id="servPlus" aria-label="Increase">+</button>
+    </div>
+  </div>
+</section>
+
+<div class="tabs-wrap">
+  <div class="wrap">
+    <div class="tabs">
+      <button class="tab active" data-tab="aero-balanced"><span class="tab-num">01</span><span data-i18n="tab_1">AeroPress · Balanced</span></button>
+      <button class="tab" data-tab="aero-espresso"><span class="tab-num">02</span><span data-i18n="tab_2">AeroPress · Espresso-Style</span></button>
+      <button class="tab" data-tab="moka-balanced"><span class="tab-num">03</span><span data-i18n="tab_3">Moka Pot · Balanced</span></button>
+      <button class="tab" data-tab="moka-strong"><span class="tab-num">04</span><span data-i18n="tab_4">Moka Pot · Strong</span></button>
+      <button class="tab" data-tab="instant"><span class="tab-num">05</span><span data-i18n="tab_5">In-Cup Steep · No Equipment</span></button>
+      <button class="tab" data-tab="instant-bloom"><span class="tab-num">06</span><span data-i18n="tab_6">Instant · Cold Bloom</span></button>
+      <button class="tab" data-tab="dalgona"><span class="tab-num">07</span><span data-i18n="tab_7">Dalgona · Whipped Coffee</span></button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap" id="recipesRoot"></main>
+
+<div class="global-timer" id="globalTimer">
+  <div>
+    <div class="global-timer-label" id="gtLabel">Step</div>
+    <div class="global-timer-value" id="gtValue">0:00</div>
+  </div>
+  <button class="global-timer-stop" id="gtStop" aria-label="Stop">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer><div class="wrap"><p data-i18n="footer">Brewed with care · Recipes optimized for Lavazza Gusto Crema · 2026</p></div></footer>
+
+<script>
+window.I18N_EN = {
+  brand: 'Brewing Atlas',
+  brand_sub: 'Lavazza Gusto Crema · 7 Methods',
+  hero_eyebrow: 'A Field Guide for Lavazza Gusto Crema',
+  hero_title: 'Seven ways to brew the <em>perfect cup</em>.',
+  hero_lead: 'Lavazza Gusto Crema is a medium-roasted Arabica/Robusta blend with chocolate, hazelnut, and dried-fruit notes. Pre-ground for espresso, it shines brightest at near-espresso fineness. Below, seven tested recipes — beginner-friendly, dialed for taste.',
+  meta_roast: 'Roast', meta_roast_v: 'Medium',
+  meta_blend: 'Blend', meta_blend_v: '70/30 Arabica',
+  meta_grind: 'Default Grind', meta_grind_v: 'Espresso Fine',
+  meta_methods: 'Methods',
+  serv_label: 'Brewing for',
+  serv_hint: 'All recipe quantities will scale automatically',
+  serv_unit_singular: 'SERVING',
+  serv_unit_plural: 'SERVINGS',
+  unit_metric: 'Metric', unit_imperial: 'Imperial',
+  tab_1: 'AeroPress · Balanced',
+  tab_2: 'AeroPress · Espresso-Style',
+  tab_3: 'Moka Pot · Balanced',
+  tab_4: 'Moka Pot · Strong',
+  tab_5: 'In-Cup Steep · No Equipment',
+  tab_6: 'Instant · Cold Bloom',
+  tab_7: 'Dalgona · Whipped Coffee',
+  spec_dose: 'Coffee Dose', spec_water: 'Water', spec_grind: 'Grind Size',
+  spec_temp: 'Water Temp', spec_total: 'Total Time', spec_yield: 'Yield',
+  spec_heat: 'Heat Level', spec_equip: 'Equipment',
+  sec_steps: 'Brewing Steps',
+  sec_tips: 'Tips to improve taste',
+  sec_mistakes: 'Common mistakes',
+  sec_alt: "No equipment? Here's how to adapt",
+  diff_label: 'Difficulty',
+  timer_start: 'Start',
+  timer_done: 'Done!',
+  voice_brew_started: 'Started brewing',
+  voice_done: 'Time is up. Go to the next step.',
+  toast_started: 'Timer started',
+  toast_done: 'Done — next step',
+  footer: 'Brewed with care · Recipes optimized for Lavazza Gusto Crema · 2026',
+
+  r1_tag: 'Method 01 · Inverted AeroPress',
+  r1_title: 'AeroPress · <em>Balanced Cup</em>',
+  r1_summary: 'A clean, smooth, full-flavored cup with chocolate and toasted nut notes. The inverted method gives more control and richer extraction.',
+  r1_dose_sub: '≈ 2 heaped scoops', r1_water_sub: '1:14.5 ratio',
+  r1_grind_v: 'Medium-Fine', r1_grind_sub: 'Like fine table salt',
+  r1_temp_sub: 'Lower = less bitterness',
+  r1_total_sub: 'From bloom to press', r1_yield_sub: 'One generous mug',
+  r1_s1_t: 'Set up inverted',
+  r1_s1_p: 'Assemble the AeroPress with the plunger pushed in about 1 cm, then flip it upside-down so the open chamber faces up. Rinse the paper filter inside the cap with hot water — this removes papery taste and pre-warms the cap.',
+  r1_s1_time: '0:00 – 0:20',
+  r1_s2_t: 'Add coffee & bloom',
+  r1_s2_p: 'Add the coffee. Pour about a quarter of the water at 85°C in a circular motion to fully wet the grounds. Give a gentle swirl. Let the CO₂ escape — this opens up flavor.',
+  r1_s2_time: '30 sec bloom',
+  r1_s3_t: 'Main pour',
+  r1_s3_p: 'Slowly add the remaining water until the total weight is reached. Stir gently 3 times to ensure all grounds are saturated.',
+  r1_s3_time: '0:50 – 1:10',
+  r1_s4_t: 'Steep',
+  r1_s4_p: 'Cap the AeroPress with the filter cap. Let it sit undisturbed so coffee oils and solubles dissolve into the water.',
+  r1_s4_time: '45 sec steep',
+  r1_s5_t: 'Flip & press',
+  r1_s5_p: 'Carefully flip the AeroPress onto your mug. Press down slowly and steadily — about 25 to 30 seconds total. Stop when you hear the hiss; pressing further extracts bitterness.',
+  r1_s5_time: '25–30 sec press',
+  r1_s6_t: 'Dilute (optional)',
+  r1_s6_p: 'For a longer cup, add 30 to 50 ml of hot water to taste. Swirl the mug. Smell first, then sip.',
+  r1_s6_time: 'Serve',
+  r1_tip1: 'Pre-wet the paper filter — papery taste is real, and 5 seconds of rinsing fixes it.',
+  r1_tip2: 'Use filtered water. Tap water with high TDS will mute the chocolate notes.',
+  r1_tip3: 'Swirl, don\'t stir aggressively. A gentle swirl during bloom evens out extraction without agitating fines.',
+  r1_tip4: 'If too bitter, drop temp to 82°C. If too sour or weak, raise to 88°C.',
+  r1_tip5: 'Let coffee rest 30 seconds after pressing — flavors round out as it cools.',
+  r1_mis1: 'Boiling water (100°C) — burns the coffee and exaggerates bitterness from the Robusta blend.',
+  r1_mis2: 'Pressing too fast or too hard — forces fines through and adds harshness.',
+  r1_mis3: 'Using espresso-fine grind without inverted method — clogs the filter and stalls the press.',
+  r1_mis4: 'Skipping the bloom — leaves CO₂ trapped, cup tastes flat and gassy.',
+  r1_mis5: 'Reusing grounds — the second pull is hollow and astringent.',
+  r1_alt: '<strong>No scale?</strong> 15 g ≈ 2 rounded tablespoons. <strong>No thermometer?</strong> Boil water, then wait 60 seconds — that\'s roughly 85°C. <strong>No AeroPress?</strong> Use a French press: same dose, same water, steep 4 minutes, plunge slowly.',
+
+  r2_tag: 'Method 02 · Standard AeroPress · Concentrated',
+  r2_title: 'AeroPress · <em>Espresso-Style</em>',
+  r2_summary: 'A short, intense, syrupy shot with a thin crema. Perfect base for lattes, cappuccinos, or sipping straight as a "pseudo-espresso."',
+  r2_dose_sub: 'Heaped 2 scoops', r2_water_sub: '1:3.3 ratio · short',
+  r2_grind_v: 'Fine', r2_grind_sub: 'Like fine sand / pre-ground',
+  r2_temp_sub: 'Hotter for full body',
+  r2_total_sub: 'Quick & intense', r2_yield_sub: 'Strong shot',
+  r2_s1_t: 'Standard setup',
+  r2_s1_p: 'Place a paper filter in the cap, rinse with hot water, attach to the chamber. Sit it on a small sturdy mug or shot glass. Lavazza Gusto Crema is already espresso-fine, so no grinder needed.',
+  r2_s1_time: '0:00 – 0:15',
+  r2_s2_t: 'Dose & level',
+  r2_s2_p: 'Add the coffee. Tap the chamber gently to settle the bed flat — uneven beds equal uneven extraction.',
+  r2_s2_time: '0:15 – 0:25',
+  r2_s3_t: 'Bloom pour',
+  r2_s3_p: 'Pour just half the water at 90°C. Stir 5 times briskly with a paddle. The bloom develops body and crema.',
+  r2_s3_time: '15 sec bloom',
+  r2_s4_t: 'Top up',
+  r2_s4_p: 'Add the remaining water. Insert the plunger, pull up slightly to create vacuum seal — this prevents drip-through.',
+  r2_s4_time: '0:40 – 0:50',
+  r2_s5_t: 'Press hard & fast',
+  r2_s5_p: 'Press firmly down — much harder than usual — for 20 to 25 seconds. The pressure is what builds the espresso-like texture and crema. Stop at the hiss.',
+  r2_s5_time: '20–25 sec press',
+  r2_s6_t: 'Serve immediately',
+  r2_s6_p: 'Drink as is, or top with steamed milk for a flat white or cappuccino. Crema fades within 60 seconds.',
+  r2_s6_time: 'Serve',
+  r2_tip1: 'Tamp lightly with the back of a spoon for a denser puck — improves crema noticeably.',
+  r2_tip2: 'Pre-warm your mug with hot water; cold cups kill espresso instantly.',
+  r2_tip3: 'For real crema lovers, a metal disc filter in addition to the paper boosts oils through.',
+  r2_tip4: 'Increase the dose by 1 g if your shot feels weak — Gusto Crema responds well to higher doses.',
+  r2_tip5: 'Drink within 30 seconds. Espresso-style shots oxidize fast.',
+  r2_mis1: 'Using too much water — over 70 ml dilutes the shot beyond espresso character.',
+  r2_mis2: 'Pressing slowly like the balanced recipe — you need pressure here, not gentleness.',
+  r2_mis3: 'Cold water or under 90°C — flat shot with no body or crema.',
+  r2_mis4: 'Skipping the stir — channels form and water bypasses the puck.',
+  r2_mis5: 'Expecting real espresso crema — AeroPress can\'t generate 9 bar pressure. The thin crema is normal.',
+  r2_alt: '<strong>No paddle?</strong> A clean butter knife works. <strong>No metal filter?</strong> Stack two paper filters. <strong>No AeroPress?</strong> The Moka Pot Strong recipe (Method 04) is the closest substitute.',
+
+  r3_tag: 'Method 03 · 3-Cup Bialetti / Stovetop',
+  r3_title: 'Moka Pot · <em>Balanced Cup</em>',
+  r3_summary: 'A smooth, rounded stovetop brew. Less aggressive than the classic strong moka — keeps the hazelnut and milk-chocolate notes alive without burning.',
+  r3_dose_sub: 'Fills 3-cup basket loosely', r3_water_sub: 'Pre-heated, just below valve',
+  r3_grind_v: 'Medium-Fine', r3_grind_sub: 'Slightly coarser than espresso',
+  r3_temp_sub: 'Pre-boiled · key step',
+  r3_heat_v: 'Low–Med', r3_heat_sub: 'Patience over speed',
+  r3_total_sub: 'From flame on',
+  r3_s1_t: 'Pre-boil water',
+  r3_s1_p: 'Boil water in a kettle. Pour the water (just off the boil) into the bottom chamber — up to but never past the safety valve. Pre-heated water is the single biggest taste upgrade for Moka.',
+  r3_s1_time: '0:00 – 0:30',
+  r3_s2_t: 'Fill the basket',
+  r3_s2_p: 'Add the coffee to the funnel filter. Level the surface with a finger — DO NOT tamp. Tamping a Moka basket causes pressure spikes and burnt taste.',
+  r3_s2_time: '0:30 – 0:50',
+  r3_s3_t: 'Assemble carefully',
+  r3_s3_p: 'Use a towel — the bottom is hot. Screw the top tightly. Place on stove at low-medium heat. Leave the lid open so you can watch the flow.',
+  r3_s3_time: '0:50 – 1:10',
+  r3_s4_t: 'Wait for the gurgle',
+  r3_s4_p: 'In 90 to 120 seconds you\'ll see a steady honey-coloured stream rising in the spout. The flow should be slow and smooth — not violent.',
+  r3_s4_time: '90–120 sec extraction',
+  r3_s5_t: 'Kill the heat early',
+  r3_s5_p: 'The moment the stream turns pale and starts to sputter, take the pot off the heat. Wrap the base in a wet towel for 5 seconds to stop extraction instantly.',
+  r3_s5_time: '~3:00 mark',
+  r3_s6_t: 'Stir & serve',
+  r3_s6_p: 'Stir the upper chamber gently — the first and last drops differ in strength, mixing balances the cup. Drink straight, or dilute with hot water for an Americano.',
+  r3_s6_time: 'Serve',
+  r3_tip1: 'Pre-boiled water is non-negotiable — cold-start moka burns the grounds before brewing.',
+  r3_tip2: 'Low-medium flame only. High heat = bitter, scorched cup.',
+  r3_tip3: 'Clean your moka with hot water only. Soap residue ruins flavor for weeks.',
+  r3_tip4: 'Once you hear sputtering, you\'re seconds from over-extraction. React fast.',
+  r3_tip5: 'Aluminum moka pots build flavor over months — don\'t scrub the inside.',
+  r3_mis1: 'Filling water above the valve — dangerous and floods the bed.',
+  r3_mis2: 'Tamping the coffee — clogs the basket, builds pressure, splatters.',
+  r3_mis3: 'Leaving the moka on heat after sputtering — burns the bottom shot.',
+  r3_mis4: 'Cold-water start — extracts harsh, bitter, papery notes.',
+  r3_mis5: 'Pouring straight without stirring — bottom of cup is way stronger than top.',
+  r3_alt: '<strong>Different size moka?</strong> Use the same ratio — 1 g coffee per 10 ml water. <strong>Induction stove and aluminum pot?</strong> Use a steel induction adapter disc. <strong>No kettle?</strong> Heat water in a saucepan to a rolling boil before transferring.',
+
+  r4_tag: 'Method 04 · The Italian Way · Concentrated',
+  r4_title: 'Moka Pot · <em>Espresso-Style Strong</em>',
+  r4_summary: 'Thick, bold, dark — the classic Italian morning shot. Aggressive crema, dark-chocolate intensity, ideal as a base for milk drinks or sipping with a cube of sugar.',
+  r4_dose_sub: 'Basket fully filled, levelled', r4_water_sub: 'Below valve · concentrated',
+  r4_grind_v: 'Fine', r4_grind_sub: 'Like granulated sugar',
+  r4_temp_sub: 'Pre-boiled, off heat',
+  r4_heat_v: 'Medium', r4_heat_sub: 'Faster, more pressure',
+  r4_yield_sub: '2 small Italian cups',
+  r4_s1_t: 'Boil & load',
+  r4_s1_p: 'Boil water; transfer it into the moka base while still very hot. The lower water volume equals a stronger, more concentrated shot.',
+  r4_s1_time: '0:00 – 0:30',
+  r4_s2_t: 'Heaped, levelled basket',
+  r4_s2_p: 'Add the coffee — heap it slightly above the basket rim, then level off with a finger. No tamping. The slight overfill compacts naturally as the top is screwed on.',
+  r4_s2_time: '0:30 – 1:00',
+  r4_s3_t: 'Assemble & medium heat',
+  r4_s3_p: 'Screw on tightly. Place on medium flame — hotter than the balanced recipe. The faster pressure ramp is what gives the espresso-style intensity and crema.',
+  r4_s3_time: '1:00 – 1:15',
+  r4_s4_t: 'Watch the first crema',
+  r4_s4_p: 'In 60 to 90 seconds, a thick golden-brown stream begins. The first 10 seconds carry the most crema — this is where Gusto Crema earns its name.',
+  r4_s4_time: '60–90 sec extraction',
+  r4_s5_t: 'Cut early — be ruthless',
+  r4_s5_p: 'The moment the colour turns pale or the sound changes, kill the heat and cool the base on a wet towel. Going one beat further turns this drink bitter and burnt.',
+  r4_s5_time: '~2:30 mark',
+  r4_s6_t: 'Pour & sip slow',
+  r4_s6_p: 'Pour into a small pre-warmed cup. Drink straight Italian-style, or pour over steamed milk for a stovetop cappuccino. Sugar (if any) goes in last.',
+  r4_s6_time: 'Serve',
+  r4_tip1: '"Crema booster" trick: spoon the first 5 ml of brew into a cup with 1 tsp sugar, whip with a spoon for 1 minute → adds gorgeous foam back.',
+  r4_tip2: 'Pre-warm the receiving cup with boiling water — moka shots cool fast.',
+  r4_tip3: 'For deeper body, add 1 g extra to the dose. Don\'t push past — basket overflow ruins the seal.',
+  r4_tip4: 'Keep the moka pot\'s rubber gasket fresh; replace yearly. A worn gasket = pressure leak = no crema.',
+  r4_tip5: 'If too bitter consistently, drop water by 10 ml rather than coffee — Gusto Crema needs the dose.',
+  r4_mis1: 'High flame thinking faster equals stronger — you\'ll just scorch and stall.',
+  r4_mis2: 'Tamping the basket — Moka is not espresso, pressure mechanics differ.',
+  r4_mis3: 'Leaving on heat "to be sure it\'s done" — it was done; now it\'s ruined.',
+  r4_mis4: 'Skipping pre-boiled water in the strong version — even more critical here than balanced.',
+  r4_mis5: 'Pouring crema into milk last — crema goes IN first, milk floats over.',
+  r4_alt: '<strong>No moka pot?</strong> The AeroPress espresso-style recipe (Method 02) yields a similar concentration. <strong>1-cup mini moka?</strong> Use 7 g coffee + 50 ml water; same flame, same timing.',
+
+  r5_tag: 'Method 05 · Direct In-Cup (Kopi Tubruk / Polish)',
+  r5_title: 'In-Cup Brew · <em>No Equipment</em>',
+  r5_summary: 'Don\'t have an AeroPress or Moka Pot? No problem. This direct steeping method (often called mud coffee or Kopi Tubruk) extracts a rich, heavy-bodied cup directly in your mug using just hot water.',
+  r5_dose_sub: '15g (2 heaped tablespoons)', r5_water_sub: 'Per serving',
+  r5_grind_v: 'Medium-Fine', r5_grind_sub: 'Pre-ground works fine',
+  r5_temp_sub: '90°C (1 min off boil)',
+  r5_total_sub: '4 mins steep + 2 mins rest',
+  r5_yield_sub: 'One standard mug',
+  r5_s1_t: 'Pre-warm your mug',
+  r5_s1_p: 'Fill your mug with hot water and let it sit for 30 seconds, then discard. A pre-warmed mug keeps the coffee hot during the long steeping process.',
+  r5_s1_time: '0:00 – 0:30',
+  r5_s2_t: 'Add coffee grounds',
+  r5_s2_p: 'Add 15g (about 2 heaped tablespoons) of Lavazza Gusto Crema grounds to your empty, warmed mug.',
+  r5_s2_time: '0:30 – 0:40',
+  r5_s3_t: 'Pour & wet',
+  r5_s3_p: 'Pour 200 ml of 90°C water in a steady circular motion, ensuring all the dry coffee grounds get completely wet.',
+  r5_s3_time: '0:40 – 0:55',
+  r5_s4_t: 'Let it steep',
+  r5_s4_p: 'Leave the mug completely untouched. A crust of coffee grounds will form at the top. This crust traps the heat and aroma while the coffee extracts.',
+  r5_s4_time: '4 minutes steep',
+  r5_s5_t: 'Break the crust',
+  r5_s5_p: 'Take a spoon and gently stir the surface crust 3 times. Most of the grounds will immediately sink to the bottom. You can scoop off any remaining foam for a cleaner cup.',
+  r5_s5_time: 'Break & clean',
+  r5_s6_t: 'Settle & sip',
+  r5_s6_p: 'Wait another 2 minutes. This allows the coffee to cool to a drinkable temperature and lets the remaining fine dust settle at the bottom. Sip carefully.',
+  r5_s6_time: '2 minutes settle',
+  r5_tip1: 'Use a tall mug if possible — it gives the grounds more distance to settle at the bottom away from your lips.',
+  r5_tip2: 'If you have a grinder, grinding slightly coarser than espresso helps the grounds sink faster.',
+  r5_tip3: 'Don\'t drink the very last sip! The "mud" at the bottom will be bitter and gritty.',
+  r5_tip4: 'Skimming the top foam off after breaking the crust removes a lot of the harsh bitterness.',
+  r5_tip5: 'Wait the full 4 minutes. Steeping directly requires time for the water to penetrate the grounds fully.',
+  r5_mis1: 'Using actively boiling water (100°C) — it will burn the grounds since they steep for a long time.',
+  r5_mis2: 'Stirring immediately after pouring the water — it breaks the crust too early and cools the brew.',
+  r5_mis3: 'Drinking it too quickly — if you don\'t let it settle after breaking the crust, you will get a mouth full of grit.',
+  r5_mis4: 'Using too little coffee — this method needs a solid 1:13 to 1:15 ratio to create a strong enough body.',
+  r5_mis5: 'Squeezing or pressing the grounds at the bottom with your spoon — it forces out bitter tannins.',
+  r5_alt: '<strong>Want a cleaner cup?</strong> After the 4-minute steep, gently pour the coffee through a fine tea strainer into a second mug. <strong>Too strong?</strong> Add a little more hot water after breaking the crust.',
+
+  r6_tag: 'Method 06 · Nescafé / Instant Coffee',
+  r6_title: 'Instant Coffee · <em>Cold Bloom</em>',
+  r6_summary: 'A barista trick to coax the richest, smoothest flavor out of any instant coffee. Cold blooming protects fragile aromatics from being scorched by hot water.',
+  r6_dose_sub: '2g (1 level tsp)', r6_water_sub: '150 ml total',
+  r6_grind_v: 'N/A', r6_grind_sub: 'Soluble granules',
+  r6_temp_sub: '85-90°C',
+  r6_total_sub: 'Under 2 mins', r6_yield_sub: 'One standard mug',
+  r6_s1_t: 'Pre-warm the Mug',
+  r6_s1_p: 'Fill your mug with hot water and let it sit for 30 seconds, then discard. A pre-warmed mug keeps your coffee hot longer and prevents temperature shock.',
+  r6_s1_time: '0:00 – 0:30',
+  r6_s2_t: 'Dose the Coffee',
+  r6_s2_p: 'Discard the warming water. Add exactly 2 grams (1 level teaspoon) of instant coffee granules.',
+  r6_s2_time: '0:30 – 0:35',
+  r6_s3_t: 'Cold-Water Bloom',
+  r6_s3_p: 'Add exactly 10 ml of room temperature or cold water to the granules. Stir vigorously with a spoon until it forms a smooth, thick, dark paste. This hydrates and protects the delicate aromatics.',
+  r6_s3_time: '15 sec paste',
+  r6_s4_t: 'The Hot Pour',
+  r6_s4_p: 'Pour 140 ml of 85°C–90°C water over the paste in a slow, circular motion. Stir gently exactly three times from the bottom up to integrate.',
+  r6_s4_time: '15 sec pour',
+  r6_s5_t: 'The Rest',
+  r6_s5_p: 'Let the cup sit completely undisturbed. This allows the dissolved solids to settle into a uniform body, softening the sharper, astringent top notes typical of instant coffee.',
+  r6_s5_time: '20 sec rest',
+  r6_s6_t: 'Serve',
+  r6_s6_p: 'Drink as is, or add hot frothed milk. If adding milk, heat it separately rather than pouring it cold from the fridge.',
+  r6_s6_time: 'Serve',
+  r6_tip1: 'Add a micro-pinch of salt (literally 2-3 grains) to the dry coffee to chemically neutralize harsh bitterness.',
+  r6_tip2: 'Upgrade to freeze-dried instant (like Nescafé Gold) rather than spray-dried to preserve more original flavor and lipids.',
+  r6_tip3: 'Heat your milk separately and shake it in a sealed jar for 20 seconds before pouring for a latte-like texture.',
+  r6_tip4: 'Stick to level spoons. Instant is highly concentrated; over-dosing causes intense medicinal bitterness.',
+  r6_tip5: 'Let your kettle rest for 60-90 seconds after boiling to reach the ideal 85-90°C range.',
+  r6_mis1: 'Using 100°C boiling water directly — instantly scalds the granules and produces a sharp, metallic cup.',
+  r6_mis2: 'Skipping the cold bloom — throwing hot water on dry granules destroys the few volatile aromas left.',
+  r6_mis3: 'Over-stirring the final cup — introduces unnecessary air and makes the coffee taste thin and watery.',
+  r6_mis4: 'Pouring cold milk directly into the hot brew — shocks the temperature and flattens the flavor.',
+  r6_mis5: 'Adding heaping spoons for a "stronger kick" — reduce water instead of adding more coffee.',
+  r6_alt: '<strong>Want it iced?</strong> Make the cold paste, add 30ml warm water, then pour directly over a glass full of ice and top with cold milk.',
+
+  r7_tag: 'Method 07 · Viral Whipped Coffee · Dalgona',
+  r7_title: 'Dalgona Coffee · <em>Whipped & Cloud-Like</em>',
+  r7_summary: 'A creamy, cloud-like whipped coffee from South Korea that went viral worldwide. The 1:1:1 ratio is the holy trinity — equal parts instant coffee, sugar, and hot water whipped into a pale golden caramel foam, served over cold or hot milk.',
+  r7_dose_sub: '2 tsp instant coffee', r7_water_sub: '2 tsp only — to dissolve',
+  r7_grind_v: 'N/A', r7_grind_sub: 'Soluble instant granules',
+  r7_temp_sub: 'Just enough to dissolve',
+  r7_total_sub: '5–6 mins (mostly whipping)', r7_yield_sub: 'One tall glass · 200ml milk',
+  r7_s1_t: 'Combine the holy trinity',
+  r7_s1_p: 'In a deep bowl, add 2 tsp instant coffee, 2 tsp sugar, and 2 tsp hot water. The ratio is always 1:1:1 — equal parts coffee, sugar, water. This is the holy trinity of Dalgona — get this right and the rest just works.',
+  r7_s1_time: '0:00 – 0:30',
+  r7_s2_t: 'Whip vigorously by hand',
+  r7_s2_p: 'Using a spoon or fork, whip the mixture rapidly in circular motion for 3–4 minutes. You will see it transform: dark liquid → light brown → thick pale caramel foam. Keep going until it holds stiff peaks like whipped cream. Yes, your arm will hurt — that is part of the deal!',
+  r7_s2_time: '3–4 min whip',
+  r7_s3_t: 'Check the consistency',
+  r7_s3_p: 'The whipped coffee is ready when it is thick, glossy and pale golden — it should hold its shape on the spoon and not drip back. If it is still runny or dark, whip for another 60 seconds. Stiff peaks = success.',
+  r7_s3_time: '60 sec extra if needed',
+  r7_s4_t: 'Prepare your milk base',
+  r7_s4_p: 'For cold Dalgona: fill a tall glass with 4 ice cubes and pour in 200ml cold milk. For hot Dalgona: warm 200ml milk gently. Either way, leave about 1/3 of the glass empty at the top — that space is for the foam crown.',
+  r7_s4_time: 'Prep glass',
+  r7_s5_t: 'Spoon the foam on top',
+  r7_s5_p: 'Gently dollop and spread the whipped coffee foam over the milk using a spoon. Pile it generously and let it sit proudly on top — the contrast of pale golden foam over white milk is the whole signature Dalgona look.',
+  r7_s5_time: 'Plate it',
+  r7_s6_t: 'Garnish & serve',
+  r7_s6_p: 'Optional: dust a tiny pinch of instant coffee powder or cocoa on top for that café finish. Always stir before drinking — mix the foam down into the milk so every sip carries the full sweet-bitter flavor instead of leaving it all in the foam.',
+  r7_s6_time: 'Serve',
+  r7_tip1: 'Use a deep bowl, not a flat one — the depth gives the foam room to grow upward instead of splashing out.',
+  r7_tip2: 'A hand whisk or electric beater cuts whipping time from 4 minutes to about 90 seconds. A milk frother also works.',
+  r7_tip3: 'Brown sugar instead of white gives a deeper, almost toffee-like flavor.',
+  r7_tip4: 'Use freeze-dried instant (like Nescafé Gold) — spray-dried instant whips, but the flavor is thinner.',
+  r7_tip5: 'Make extra foam and store it in the fridge in a sealed jar — it keeps fluffy for up to 3 days.',
+  r7_mis1: 'Using espresso powder or ground coffee instead of instant — only instant has the surfactants needed to whip into stiff peaks. Ground coffee just sits there.',
+  r7_mis2: 'Skipping or reducing the sugar — sugar is structural here, not just sweet. Less sugar means foam that collapses fast.',
+  r7_mis3: 'Using cold or warm water instead of hot — the granules need hot water to dissolve completely first; otherwise you whip lumps.',
+  r7_mis4: 'Stopping too early when the foam is still light brown and runny — keep going until it is pale and stiff, otherwise it sinks into the milk.',
+  r7_mis5: 'Pouring the foam straight into milk and stirring immediately — the visual layering is half the fun, and it tastes better when you drink through the foam.',
+  r7_alt: '<strong>No instant coffee?</strong> Sadly this method only works with instant — ground coffee will not whip. <strong>No hand whisk?</strong> A fork works fine, just commit for 4 full minutes. <strong>Want it Indian-cafe style?</strong> Add a pinch of cardamom powder to the foam before whipping for a desi twist.'
+};
+
+window.I18N_HI = {
+  brand: 'ब्रूइंग एटलस',
+  brand_sub: 'लवाज़ा गुस्तो क्रेमा · 7 तरीके',
+  hero_eyebrow: 'लवाज़ा गुस्तो क्रेमा के लिए गाइड',
+  hero_title: 'बढ़िया कॉफी बनाने के <em>7 आसान तरीके</em>',
+  hero_lead: 'लवाज़ा गुस्तो क्रेमा एक मीडियम रोस्ट अरेबिका/रोबस्टा ब्लेंड है जिसमें चॉकलेट और हेज़लनट के बहुत बढ़िया नोट्स आते हैं। ये एस्प्रेसो के लिए पहले से बारीक पिसी होती है, इसलिए इसका स्वाद काफी निखर कर आता है। नीचे हमने 7 ऐसे तरीके बताए हैं जो नए लोगों के लिए आसान हैं और स्वाद में भी एकदम परफेक्ट हैं।',
+  meta_roast: 'रोस्ट', meta_roast_v: 'मीडियम',
+  meta_blend: 'ब्लेंड', meta_blend_v: '70/30 अरेबिका',
+  meta_grind: 'डिफ़ॉल्ट ग्राइंड', meta_grind_v: 'एस्प्रेसो फाइन (बारीक)',
+  meta_methods: 'तरीके',
+  serv_label: 'कितने लोगों के लिए',
+  serv_hint: 'सभी मात्राएँ अपने आप बदल जाएंगी',
+  serv_unit_singular: 'सर्विंग',
+  serv_unit_plural: 'सर्विंग्स',
+  unit_metric: 'मेट्रिक', unit_imperial: 'इम्पीरियल',
+  tab_1: 'एयरोप्रेस · बैलेंस्ड',
+  tab_2: 'एयरोप्रेस · एस्प्रेसो-स्टाइल',
+  tab_3: 'मोका पॉट · बैलेंस्ड',
+  tab_4: 'मोका पॉट · कड़क',
+  tab_5: 'इन-कप स्टीप · बिना मशीन के',
+  tab_6: 'इंस्टेंट · कोल्ड ब्लूम',
+  tab_7: 'डालगोना · फेंटी हुई कॉफी',
+  spec_dose: 'कॉफी की मात्रा', spec_water: 'पानी', spec_grind: 'पीसने का आकार',
+  spec_temp: 'पानी का तापमान', spec_total: 'कुल समय', spec_yield: 'कितनी बनेगी',
+  spec_heat: 'गैस की आंच', spec_equip: 'सामान',
+  sec_steps: 'बनाने का तरीका',
+  sec_tips: 'स्वाद बेहतर करने के टिप्स',
+  sec_mistakes: 'आम गलतियां',
+  sec_alt: 'सामान नहीं है? ऐसे काम चलाएं',
+  diff_label: 'मुश्किल',
+  timer_start: 'शुरू करें',
+  timer_done: 'हो गया!',
+  voice_brew_started: 'कॉफी बनाना शुरू',
+  voice_done: 'समय पूरा हो गया। अब अगले स्टेप पर जाएं।',
+  toast_started: 'टाइमर शुरू',
+  toast_done: 'हो गया — अगला स्टेप',
+  footer: 'प्यार से बनाई गई · लवाज़ा गुस्तो क्रेमा के लिए खास रेसिपी · 2026',
+
+  r1_tag: 'तरीका 01 · उल्टा एयरोप्रेस (इनवर्टेड)',
+  r1_title: 'एयरोप्रेस · <em>बैलेंस्ड कप</em>',
+  r1_summary: 'एक साफ, स्मूद और स्वाद से भरपूर कप जिसमें चॉकलेट और रोस्टेड नट्स का टेस्ट आता है। उल्टे तरीके (इनवर्टेड) से कॉफी बेहतर कंट्रोल होती है और स्वाद ज्यादा अच्छा आता है।',
+  r1_dose_sub: 'लगभग 2 भरे हुए चम्मच', r1_water_sub: '1:14.5 का अनुपात',
+  r1_grind_v: 'मीडियम-फाइन', r1_grind_sub: 'बारीक नमक जैसा',
+  r1_temp_sub: 'कम तापमान = कम कड़वाहट',
+  r1_total_sub: 'पानी डालने से लेकर प्रेस करने तक', r1_yield_sub: 'एक भरा हुआ मग',
+  r1_s1_t: 'इसे उल्टा सेट करें',
+  r1_s1_p: 'एयरोप्रेस को जोड़ें और प्लंजर को करीब 1 सेमी अंदर धकेल दें, फिर इसे उल्टा रख दें ताकि खुला हिस्सा ऊपर रहे। कैप में रखे पेपर फिल्टर को थोड़े गर्म पानी से धो लें ताकि कागज़ की महक चली जाए।',
+  r1_s1_time: '0:00 – 0:20',
+  r1_s2_t: 'कॉफी डालें और भीगने दें (ब्लूम)',
+  r1_s2_p: 'कॉफी डालें। 85°C गर्म पानी का लगभग एक चौथाई हिस्सा गोल घुमाते हुए डालें ताकि सारी कॉफी गीली हो जाए। एयरोप्रेस को हल्के से घुमाएं और कॉफी से गैस निकलने दें। इससे स्वाद खुलकर आता है।',
+  r1_s2_time: '30 सेकंड ब्लूम',
+  r1_s3_t: 'बाकी का पानी डालें',
+  r1_s3_p: 'अब बचा हुआ पूरा पानी धीरे-धीरे डाल दें। चम्मच से धीरे-धीरे 3 बार चलाएं ताकि कॉफी अच्छी तरह मिक्स हो जाए।',
+  r1_s3_time: '0:50 – 1:10',
+  r1_s4_t: 'इसे छोड़ दें',
+  r1_s4_p: 'फिल्टर वाली कैप लगा दें और इसे 45 सेकंड के लिए बिना छुए ऐसे ही छोड़ दें ताकि कॉफी का असली स्वाद पानी में घुल सके।',
+  r1_s4_time: '45 सेकंड इंतज़ार',
+  r1_s5_t: 'पलटें और दबाएं',
+  r1_s5_p: 'संभलकर एयरोप्रेस को अपने मग के ऊपर पलटें। अब धीरे-धीरे और एक समान प्रेशर के साथ इसे नीचे दबाएं (इसमें 25-30 सेकंड लगने चाहिए)। जैसे ही हवा निकलने की \'फुस\' आवाज़ आए, रुक जाएं। और दबाएंगे तो कॉफी कड़वी हो जाएगी।',
+  r1_s5_time: '25–30 सेकंड प्रेस',
+  r1_s6_t: 'हल्का करें (अगर चाहें तो)',
+  r1_s6_p: 'अगर आपको ज्यादा कड़क कॉफी पसंद नहीं है, तो अपने स्वाद के हिसाब से 30-50 ml गर्म पानी और मिला लें। मग को हल्का सा घुमाएं, खुशबू लें और मज़ा उठाएं।',
+  r1_s6_time: 'परोसें',
+  r1_tip1: 'पेपर फिल्टर को पहले से गीला करना ना भूलें, इससे कागज़ वाला स्वाद नहीं आता।',
+  r1_tip2: 'फिल्टर किए हुए पानी का इस्तेमाल करें। अगर नल के पानी में मिनरल्स (TDS) ज्यादा होंगे, तो कॉफी का चॉकलेटी स्वाद दब जाएगा।',
+  r1_tip3: 'शुरू में इसे ज़ोर से चलाने के बजाय बस हल्के से घुमाएं।',
+  r1_tip4: 'अगर कॉफी ज्यादा कड़वी लग रही है तो अगली बार पानी का तापमान 82°C कर लें। अगर स्वाद कम आ रहा है तो 88°C कर लें।',
+  r1_tip5: 'दबाने के बाद कॉफी को 30 सेकंड के लिए छोड़ दें। थोड़ा ठंडा होने पर इसका स्वाद और बेहतर लगता है।',
+  r1_mis1: 'एकदम उबलता हुआ (100°C) पानी डालना — इससे कॉफी जल जाती है और रोबस्टा बीन्स की कड़वाहट हावी हो जाती है।',
+  r1_mis2: 'बहुत जल्दी या बहुत ज्यादा ताकत से दबाना — इससे कॉफी के बारीक कण मग में आ जाते हैं।',
+  r1_mis3: 'बिना उल्टे तरीके (इनवर्टेड) के बहुत बारीक पिसी कॉफी इस्तेमाल करना — इससे फिल्टर ब्लॉक हो जाता है।',
+  r1_mis4: 'शुरुआत में थोड़ा पानी डालकर कॉफी को फूलने (ब्लूम) ना देना — इससे कॉफी का असली स्वाद बाहर नहीं आ पाता।',
+  r1_mis5: 'एक बार इस्तेमाल हो चुकी कॉफी को दोबारा इस्तेमाल करना — इसका स्वाद बहुत ही फीका और खराब आता है।',
+  r1_alt: '<strong>तराज़ू नहीं है?</strong> 15 ग्राम का मतलब है 2 अच्छे से भरे हुए बड़े चम्मच। <strong>थर्मामीटर नहीं है?</strong> पानी उबालें और 1 मिनट के लिए छोड़ दें, यह लगभग 85°C हो जाएगा। <strong>एयरोप्रेस नहीं है?</strong> फ्रेंच प्रेस इस्तेमाल करें: यही मात्रा लें, 4 मिनट के लिए छोड़ें और धीरे से प्रेस करें।',
+
+  r2_tag: 'तरीका 02 · सीधा एयरोप्रेस · गाढ़ा',
+  r2_title: 'एयरोप्रेस · <em>एस्प्रेसो स्टाइल</em>',
+  r2_summary: 'कम पानी वाली, गाढ़ी और तेज़ कॉफी जिसमें हल्की सी झाग (क्रेमा) होती है। इसे लाटे या कैपुचीनो बनाने के बेस की तरह इस्तेमाल कर सकते हैं।',
+  r2_dose_sub: '2 भरे हुए चम्मच', r2_water_sub: '1:3.3 का अनुपात · कम पानी',
+  r2_grind_v: 'बारीक (फाइन)', r2_grind_sub: 'बारीक रेत जैसा / रेडीमेड पिसा हुआ',
+  r2_temp_sub: 'गाढ़ेपन के लिए ज्यादा गर्म',
+  r2_total_sub: 'जल्दी और कड़क', r2_yield_sub: 'कड़क शॉट',
+  r2_s1_t: 'सीधा सेटअप करें',
+  r2_s1_p: 'कैप में पेपर फिल्टर लगाएं, गर्म पानी से धोएं और उसे एयरोप्रेस से जोड़ दें। इसे एक मज़बूत कप के ऊपर सीधा रखें।',
+  r2_s1_time: '0:00 – 0:15',
+  r2_s2_t: 'कॉफी डालें और बराबर करें',
+  r2_s2_p: 'कॉफी डालें और एयरोप्रेस को हल्के से थपथपाएं ताकि कॉफी की सतह एकदम बराबर हो जाए। सतह टेढ़ी होगी तो स्वाद खराब आएगा।',
+  r2_s2_time: '0:15 – 0:25',
+  r2_s3_t: 'थोड़ा पानी डालें (ब्लूम)',
+  r2_s3_p: '90°C गर्म पानी का आधा हिस्सा डालें। इसे 5 बार तेज़ी से चलाएं। इसी से कॉफी में गाढ़ापन और झाग आती है।',
+  r2_s3_time: '15 सेकंड ब्लूम',
+  r2_s4_t: 'बाकी पानी डालें',
+  r2_s4_p: 'बचा हुआ पानी डाल दें। प्लंजर को लगाएं और हल्का सा ऊपर की तरफ खींचें ताकि वैक्यूम बन जाए और पानी नीचे न टपके।',
+  r2_s4_time: '0:40 – 0:50',
+  r2_s5_t: 'ज़ोर से और जल्दी दबाएं',
+  r2_s5_p: 'इसे पूरी ताकत से नीचे दबाएं (पहले वाले तरीके से कहीं ज़्यादा ज़ोर से)। इसमें 20 से 25 सेकंड लगने चाहिए। इसी दबाव की वजह से कॉफी एस्प्रेसो जैसी बनती है।',
+  r2_s5_time: '20–25 सेकंड प्रेस',
+  r2_s6_t: 'तुरंत परोसें',
+  r2_s6_p: 'इसे ऐसे ही पिएं या फिर गर्म दूध डालकर लाटे/कैपुचीनो बना लें। इसकी झाग (क्रेमा) 1 मिनट के अंदर गायब हो जाती है।',
+  r2_s6_time: 'परोसें',
+  r2_tip1: 'चम्मच के पिछले हिस्से से कॉफी को हल्का सा दबाएं (टैम्प करें) — इससे झाग बेहतर बनती है।',
+  r2_tip2: 'अपने कप को पहले से गर्म कर लें; ठंडा कप एस्प्रेसो का मज़ा खराब कर देता है।',
+  r2_tip3: 'अगर आपको ज्यादा झाग पसंद है तो पेपर फिल्टर के साथ एक मेटल फिल्टर भी लगा लें।',
+  r2_tip4: 'अगर कॉफी हल्की लगे तो 1 ग्राम कॉफी और बढ़ा दें।',
+  r2_tip5: 'बनने के 30 सेकंड के अंदर इसे पी लें वरना इसका स्वाद बदलने लगता है।',
+  r2_mis1: 'ज्यादा पानी का इस्तेमाल — 70 ml से ज़्यादा पानी डालने पर यह एस्प्रेसो जैसी नहीं लगेगी।',
+  r2_mis2: 'इसे आराम-आराम से दबाना — इस रेसिपी में हमें प्रेशर की ज़रूरत है, आराम की नहीं।',
+  r2_mis3: 'ठंडा या 90°C से कम गर्म पानी लेना — इससे कॉफी एकदम फीकी बनेगी।',
+  r2_mis4: 'कॉफी को चलाना भूल जाना — इससे पानी बिना कॉफी का स्वाद लिए ही नीचे से निकल जाएगा।',
+  r2_mis5: 'मशीन जैसी असली एस्प्रेसो क्रेमा की उम्मीद करना — एयरोप्रेस में मशीन जितना प्रेशर नहीं बन सकता, इसलिए हल्की झाग ही आएगी।',
+  r2_alt: '<strong>कॉफी चलाने के लिए स्टिरर नहीं है?</strong> कोई बात नहीं, बटर नाइफ (चाकू) से चला लें। <strong>मेटल फिल्टर नहीं है?</strong> दो पेपर फिल्टर एक साथ लगा लें। <strong>एयरोप्रेस ही नहीं है?</strong> मोका पॉट का कड़क वाला तरीका (04) आज़माएं।',
+
+  r3_tag: 'तरीका 03 · 3-कप स्टोवटॉप',
+  r3_title: 'मोका पॉट · <em>बैलेंस्ड कप</em>',
+  r3_summary: 'मोका पॉट की यह रेसिपी कॉफी को जलने से बचाती है और इसका टेस्ट काफी स्मूद और चॉकलेटी रखती है।',
+  r3_dose_sub: '3-कप वाली बास्केट बिना दबाए भरें', r3_water_sub: 'उबला हुआ, वाल्व के नीचे तक',
+  r3_grind_v: 'मीडियम-फाइन', r3_grind_sub: 'एस्प्रेसो से थोड़ा मोटा',
+  r3_temp_sub: 'पहले से उबला हुआ (ज़रूरी है)',
+  r3_heat_v: 'धीमी-मीडियम', r3_heat_sub: 'जल्दबाज़ी ना करें',
+  r3_total_sub: 'गैस पर रखने के बाद',
+  r3_s1_t: 'पहले पानी उबाल लें',
+  r3_s1_p: 'केटल में पानी उबालें और इसे मोका पॉट के निचले हिस्से में डालें (सेफ्टी वाल्व से नीचे ही रखें)। उबला हुआ पानी इस्तेमाल करना मोका पॉट के लिए सबसे अच्छी टिप है।',
+  r3_s1_time: '0:00 – 0:30',
+  r3_s2_t: 'बास्केट भरें',
+  r3_s2_p: 'कॉफी को बास्केट में डालें और उंगली से ऊपर से बराबर कर लें। इसे बिल्कुल ना दबाएं (टैम्प ना करें) वरना प्रेशर बहुत ज्यादा बढ़ जाएगा और कॉफी कड़वी हो जाएगी।',
+  r3_s2_time: '0:30 – 0:50',
+  r3_s3_t: 'संभलकर जोड़ें',
+  r3_s3_p: 'तौलिये से पकड़कर मोका पॉट के ऊपर वाले हिस्से को कसें क्योंकि नीचे का हिस्सा बहुत गर्म होगा। इसे धीमी-मीडियम आंच पर रखें और ढक्कन खुला रखें।',
+  r3_s3_time: '0:50 – 1:10',
+  r3_s4_t: 'कॉफी ऊपर आने का इंतज़ार',
+  r3_s4_p: 'करीब 1.5 से 2 मिनट में आपको शहद के रंग की कॉफी ऊपर आती हुई दिखेगी। यह आराम से ऊपर आनी चाहिए, एकदम झटके से नहीं।',
+  r3_s4_time: '90–120 सेकंड',
+  r3_s5_t: 'सही समय पर गैस बंद करें',
+  r3_s5_p: 'जैसे ही कॉफी का रंग हल्का पीला पड़ने लगे और उसमें से बुलबुले फूटने (छींटे उड़ने) की आवाज़ आए, उसे तुरंत गैस से हटा लें। मोका पॉट के निचले हिस्से को 5 सेकंड के लिए गीले तौलिये पर रखें ताकि कॉफी का बनना तुरंत रुक जाए।',
+  r3_s5_time: '~3:00 मिनट पर',
+  r3_s6_t: 'चलाएं और परोसें',
+  r3_s6_p: 'ऊपर इकट्ठा हुई कॉफी को चम्मच से चला लें क्योंकि शुरू और आखिर में निकली कॉफी का गाढ़ापन अलग होता है।',
+  r3_s6_time: 'परोसें',
+  r3_tip1: 'पहले से उबला पानी लेना सबसे ज़रूरी है। ठंडे पानी से शुरुआत करने पर कॉफी बनने से पहले ही जलने लगती है।',
+  r3_tip2: 'आंच हमेशा धीमी या मीडियम रखें। तेज़ आंच पर कॉफी जल जाएगी।',
+  r3_tip3: 'मोका पॉट को सिर्फ गर्म पानी से धोएं। साबुन लगाने से कॉफी का स्वाद कई हफ्तों तक खराब हो सकता है।',
+  r3_tip4: 'जैसे ही छींटे उड़ने की आवाज़ आए, समझ लें कॉफी जलने वाली है, तुरंत हटा लें।',
+  r3_tip5: 'एल्युमिनियम के मोका पॉट को अंदर से कभी स्क्रब ना करें।',
+  r3_mis1: 'पानी को सेफ्टी वाल्व के ऊपर तक भरना — यह खतरनाक हो सकता है।',
+  r3_mis2: 'कॉफी को बास्केट में ज़ोर से दबाना — इससे कॉफी ऊपर नहीं आ पाती और कड़वी हो जाती है।',
+  r3_mis3: 'छींटे उड़ने की आवाज़ आने के बाद भी इसे गैस पर रखे रहना।',
+  r3_mis4: 'मोका पॉट में ठंडा पानी भरकर गैस पर चढ़ाना।',
+  r3_mis5: 'बिना चलाए सीधे कप में कॉफी डाल लेना।',
+  r3_alt: '<strong>अलग साइज़ का मोका पॉट है?</strong> यही अनुपात रखें — 10 ml पानी के लिए 1 ग्राम कॉफी। <strong>इंडक्शन स्टोव है?</strong> एक स्टील की इंडक्शन डिस्क का इस्तेमाल करें। <strong>केटल नहीं है?</strong> किसी बर्तन में पानी अच्छे से उबालकर इसमें डाल लें।',
+
+  r4_tag: 'तरीका 04 · इटैलियन स्टाइल · बहुत कड़क',
+  r4_title: 'मोका पॉट · <em>एस्प्रेसो स्टाइल कड़क</em>',
+  r4_summary: 'गाढ़ी, तेज़ और डार्क — बिल्कुल इटली के लोगों जैसी सुबह की कॉफी। दूध वाली कॉफी बनाने के लिए यह एकदम सही है।',
+  r4_dose_sub: 'बास्केट पूरी भरी हुई', r4_water_sub: 'वाल्व से थोड़ा नीचे (कम पानी)',
+  r4_grind_v: 'बारीक (फाइन)', r4_grind_sub: 'दानेदार चीनी जैसा',
+  r4_temp_sub: 'उबला हुआ, गैस से हटाकर',
+  r4_heat_v: 'मीडियम', r4_heat_sub: 'ज्यादा प्रेशर के लिए',
+  r4_yield_sub: '2 छोटे कप',
+  r4_s1_t: 'उबालें और भरें',
+  r4_s1_p: 'पानी उबालकर मोका पॉट के निचले हिस्से में डालें। पानी थोड़ा कम रखें ताकि कॉफी ज्यादा गाढ़ी और कड़क बने।',
+  r4_s1_time: '0:00 – 0:30',
+  r4_s2_t: 'बास्केट को ऊपर तक भरें',
+  r4_s2_p: 'कॉफी को बास्केट के किनारे से हल्का सा ऊपर तक भरें और फिर उंगली से बराबर कर दें। इसे दबाना नहीं है।',
+  r4_s2_time: '0:30 – 1:00',
+  r4_s3_t: 'बंद करें और मीडियम आंच पर रखें',
+  r4_s3_p: 'इसे कसकर बंद करें और मीडियम आंच पर रखें (बैलेंस्ड रेसिपी से थोड़ी तेज़ आंच)। तेज़ी से बनने वाले प्रेशर से ही एस्प्रेसो जैसी गाढ़ी कॉफी मिलेगी।',
+  r4_s3_time: '1:00 – 1:15',
+  r4_s4_t: 'पहली झाग (क्रेमा) पर नज़र रखें',
+  r4_s4_p: '1-1.5 मिनट में गाढ़ी, सुनहरी-भूरी कॉफी ऊपर आने लगेगी। शुरुआत के 10 सेकंड में ही सबसे बढ़िया क्रेमा निकलती है।',
+  r4_s4_time: '60–90 सेकंड',
+  r4_s5_t: 'तुरंत गैस से हटाएं',
+  r4_s5_p: 'जैसे ही कॉफी का रंग हल्का हो या आवाज़ बदले, तुरंत गैस बंद करें और मोका पॉट को गीले तौलिये पर रख दें। थोड़ी सी भी देर हुई तो कॉफी जल जाएगी।',
+  r4_s5_time: '~2:30 मिनट पर',
+  r4_s6_t: 'आराम से पिएं',
+  r4_s6_p: 'इसे छोटे कप में डालकर सीधे पिएं या फिर गर्म दूध डालकर स्टोवटॉप कैपुचीनो बना लें।',
+  r4_s6_time: 'परोसें',
+  r4_tip1: 'क्रेमा बढ़ाने की ट्रिक: शुरुआत की 5 ml कॉफी को एक कप में 1 चम्मच चीनी के साथ लें और 1 मिनट तक खूब फेंटें।',
+  r4_tip2: 'अपने कॉफी कप को पहले ही गर्म पानी से धो लें।',
+  r4_tip3: 'अगर कॉफी ज्यादा ही कड़वी लग रही है तो अगली बार पानी 10 ml कम कर दें।',
+  r4_tip4: 'मोका पॉट की रबर रिंग (गास्केट) हर साल बदलें। ढीली रिंग मतलब प्रेशर लीक होना।',
+  r4_tip5: 'दूध में कॉफी मिलाते समय हमेशा कॉफी पहले डालें, फिर ऊपर से दूध।',
+  r4_mis1: 'यह सोचना कि बहुत तेज़ आंच रखने से कॉफी अच्छी बनेगी — इससे सिर्फ कॉफी जलेगी।',
+  r4_mis2: 'बास्केट में कॉफी को ज़ोर से दबाना।',
+  r4_mis3: 'तसल्ली करने के लिए मोका पॉट को गैस पर बहुत देर तक छोड़ना।',
+  r4_mis4: 'कड़क कॉफी बनाने के चक्कर में ठंडे पानी से शुरुआत करना।',
+  r4_mis5: 'दूध के ऊपर से कॉफी डालना (झाग खराब हो जाती है)।',
+  r4_alt: '<strong>मोका पॉट नहीं है?</strong> एयरोप्रेस का तरीका 02 आज़माएं।',
+
+  r5_tag: 'तरीका 05 · सीधे मग में (कोपी टुब्रुक / मड कॉफी)',
+  r5_title: 'इन-कप ब्रू · <em>बिना मशीन के</em>',
+  r5_summary: 'कोई मशीन नहीं है? कोई बात नहीं! सीधे मग में कॉफी बनाने का यह तरीका बहुत ही गाढ़ी और खुशबूदार कॉफी बनाता है। बस आपको गर्म पानी और थोड़ा इंतज़ार चाहिए।',
+  r5_dose_sub: '15 ग्राम (2 बड़े चम्मच)', r5_water_sub: 'प्रति कप',
+  r5_grind_v: 'मीडियम-फाइन', r5_grind_sub: 'रेडीमेड पिसी कॉफी सही है',
+  r5_temp_sub: '90°C (उबालने के 1 मिनट बाद)',
+  r5_total_sub: '4 मिनट छोड़ना + 2 मिनट इंतज़ार',
+  r5_yield_sub: 'एक भरा हुआ मग',
+  r5_s1_t: 'मग को गर्म करें',
+  r5_s1_p: 'अपने मग में गर्म पानी भरें, 30 सेकंड के लिए छोड़ दें और फिर पानी फेंक दें। गर्म मग कॉफी को ज्यादा देर तक गर्म रखता है।',
+  r5_s1_time: '0:00 – 0:30',
+  r5_s2_t: 'कॉफी डालें',
+  r5_s2_p: 'अपने खाली और गर्म मग में 15 ग्राम लवाज़ा गुस्तो क्रेमा (लगभग 2 भरे हुए बड़े चम्मच) डालें।',
+  r5_s2_time: '0:30 – 0:40',
+  r5_s3_t: 'गर्म पानी डालें',
+  r5_s3_p: 'मग में 200 ml गर्म पानी (90°C) गोल घुमाते हुए डालें। ध्यान रहे कि सारी सूखी कॉफी अच्छी तरह भीग जाए।',
+  r5_s3_time: '0:40 – 0:55',
+  r5_s4_t: 'इसे ऐसे ही छोड़ दें',
+  r5_s4_p: 'अब मग को बिल्कुल ना छुएं। ऊपर कॉफी की एक परत (क्रस्ट) बन जाएगी। यह परत कॉफी की खुशबू और गर्मी को बाहर निकलने से रोकती है।',
+  r5_s4_time: '4 मिनट इंतज़ार',
+  r5_s5_t: 'परत को तोड़ें',
+  r5_s5_p: 'एक चम्मच लें और ऊपर बनी कॉफी की परत को 3 बार हल्के से चलाएं। ऐसा करते ही ज्यादातर कॉफी नीचे बैठ जाएगी। आप चाहें तो ऊपर तैर रहे झाग को चम्मच से निकाल सकते हैं।',
+  r5_s5_time: 'परत तोड़ें',
+  r5_s6_t: 'कॉफी नीचे बैठने दें',
+  r5_s6_p: '2 मिनट और इंतज़ार करें। इससे कॉफी पीने लायक ठंडी हो जाएगी और बचे हुए बारीक कण भी मग के तले में बैठ जाएंगे। अब आराम से पिएं।',
+  r5_s6_time: '2 मिनट इंतज़ार',
+  r5_tip1: 'हो सके तो लंबे मग का इस्तेमाल करें, ताकि कॉफी के कणों को नीचे बैठने के लिए जगह मिल सके।',
+  r5_tip2: 'अगर आप घर पर कॉफी पीसते हैं, तो इसे थोड़ा मोटा पीसें ताकि कण जल्दी नीचे बैठें।',
+  r5_tip3: 'मग के आखिर का घूंट बिल्कुल ना पिएं, उसमें कॉफी की "मिट्टी" (कण) होगी जो कड़वी लगेगी।',
+  r5_tip4: 'परत तोड़ने के बाद अगर आप ऊपर का झाग हटा देते हैं, तो कॉफी का स्वाद काफी साफ आता है।',
+  r5_tip5: 'पूरे 4 मिनट का इंतज़ार करें। इस तरीके में पानी को कॉफी का स्वाद खींचने में वक्त लगता है।',
+  r5_mis1: 'एकदम उबलता हुआ (100°C) पानी डालना — इससे कॉफी जल जाएगी।',
+  r5_mis2: 'पानी डालते ही तुरंत चम्मच से कॉफी को चला देना — इससे खुशबू बाहर निकल जाती है।',
+  r5_mis3: 'जल्दबाज़ी में पीना — अगर आप कणों को नीचे बैठने का वक्त नहीं देंगे, तो वे मुंह में आएंगे।',
+  r5_mis4: 'बहुत कम कॉफी का इस्तेमाल करना — इस तरीके में अच्छा स्वाद पाने के लिए कॉफी की मात्रा सही होनी चाहिए।',
+  r5_mis5: 'आखिर में चम्मच से कॉफी को दबाना — इससे कॉफी बहुत कड़वी हो जाती है।',
+  r5_alt: '<strong>मुंह में कण आने का डर है?</strong> 4 मिनट के बाद पूरी कॉफी को चाय की छलनी से छान कर दूसरे कप में निकाल लें।',
+
+  r6_tag: 'तरीका 06 · नेस्कैफे / इंस्टेंट कॉफी',
+  r6_title: 'इंस्टेंट कॉफी · <em>कोल्ड ब्लूम</em>',
+  r6_summary: 'किसी भी इंस्टेंट कॉफी से सबसे बढ़िया और स्मूद स्वाद निकालने की एक शानदार बारिस्टा ट्रिक। ठंडे पानी का इस्तेमाल (कोल्ड ब्लूम) कॉफी की नाज़ुक खुशबू को उबलते पानी से जलने से बचाता है।',
+  r6_dose_sub: '2 ग्राम (1 समतल चम्मच)', r6_water_sub: 'कुल 150 ml',
+  r6_grind_v: 'लागू नहीं', r6_grind_sub: 'पानी में घुलने वाले दाने',
+  r6_temp_sub: '85-90°C',
+  r6_total_sub: '2 मिनट से कम', r6_yield_sub: 'एक साधारण मग',
+  r6_s1_t: 'मग को गर्म करें',
+  r6_s1_p: 'अपने मग में गर्म पानी भरें, 30 सेकंड रखें और फिर फेंक दें। पहले से गर्म मग आपकी कॉफी को ज्यादा देर तक गर्म रखता है।',
+  r6_s1_time: '0:00 – 0:30',
+  r6_s2_t: 'कॉफी डालें',
+  r6_s2_p: 'मग में ठीक 2 ग्राम (1 समतल चम्मच) इंस्टेंट कॉफी के दाने डालें।',
+  r6_s2_time: '0:30 – 0:35',
+  r6_s3_t: 'ठंडे पानी की ट्रिक (कोल्ड ब्लूम)',
+  r6_s3_p: 'कॉफी में ठीक 10 ml (करीब 2 चम्मच) नॉर्मल या ठंडा पानी डालें। चम्मच से इसे तेज़ी से मिलाएं जब तक एक गाढ़ा, डार्क पेस्ट न बन जाए। यह ठंडे पानी की परत कॉफी को उबलते पानी से जलने से बचाती है।',
+  r6_s3_time: '15 सेकंड पेस्ट',
+  r6_s4_t: 'गर्म पानी डालें',
+  r6_s4_p: 'अब पेस्ट के ऊपर 140 ml गर्म पानी (85°C–90°C) धीमी गोल गति में डालें। चम्मच से इसे नीचे से ऊपर की ओर सिर्फ 3 बार हल्के से मिलाएं।',
+  r6_s4_time: '15 सेकंड पानी',
+  r6_s5_t: 'आराम दें',
+  r6_s5_p: 'कप को 20 सेकंड के लिए बिल्कुल ना छुएं। इससे घुली हुई कॉफी अच्छे से सेट हो जाती है और इंस्टेंट कॉफी का जो तीखा या कड़वा स्वाद होता है, वो कम हो जाता है।',
+  r6_s5_time: '20 सेकंड आराम',
+  r6_s6_t: 'परोसें',
+  r6_s6_p: 'इसे ऐसे ही पिएं या गर्म झागदार दूध मिला लें। अगर दूध मिला रहे हैं, तो फ्रिज से सीधा ठंडा दूध डालने के बजाय उसे पहले गर्म कर लें।',
+  r6_s6_time: 'परोसें',
+  r6_tip1: 'सूखी कॉफी में नमक के सिर्फ 2-3 दाने (एकदम चुटकी भर) डालने से कॉफी की कड़वाहट जादू की तरह कम हो जाती है।',
+  r6_tip2: 'स्प्रे-ड्राइड कॉफी की जगह फ्रीज़-ड्राइड इंस्टेंट कॉफी (जैसे Nescafé Gold) का इस्तेमाल करें। इसमें असली कॉफी का स्वाद ज्यादा होता है।',
+  r6_tip3: 'अगर आपको कैफे जैसी लाटे पीनी है, तो दूध को अलग से गर्म करें और एक बंद जार में 20 सेकंड तक शेक करके कॉफी के ऊपर डालें।',
+  r6_tip4: 'चम्मच को एकदम समतल (लेवल) करके ही कॉफी लें। इंस्टेंट कॉफी बहुत गाढ़ी होती है, ज्यादा डालने से यह दवाई जैसी कड़वी लगने लगती है।',
+  r6_tip5: 'पानी उबालने के बाद केटल को 60-90 सेकंड के लिए छोड़ दें ताकि पानी का तापमान 85-90°C तक आ जाए।',
+  r6_mis1: 'एकदम 100°C उबलता हुआ पानी सीधे डालना — यह कॉफी के दानों को तुरंत जला देता है और स्वाद बहुत कड़वा आता है।',
+  r6_mis2: 'कोल्ड ब्लूम (ठंडा पानी) ना डालना — सूखे दानों पर सीधे गर्म पानी डालने से कॉफी की बची-खुची खुशबू भी खत्म हो जाती है।',
+  r6_mis3: 'तैयार कॉफी को बहुत ज्यादा चलाना — इससे कॉफी में बेवजह हवा चली जाती है और उसका गाढ़ापन खत्म होकर पानी जैसी लगने लगती है।',
+  r6_mis4: 'गर्म कॉफी में सीधा फ्रिज का ठंडा दूध डालना — इससे कॉफी का तापमान एकदम गिर जाता है और स्वाद खराब हो जाता है।',
+  r6_mis5: '"कड़क कॉफी" के लिए ज्यादा चम्मच कॉफी डालना — कॉफी बढ़ाने के बजाय पानी थोड़ा कम इस्तेमाल करें।',
+
+  r7_tag: 'तरीका 07 · वायरल फेंटी हुई कॉफी · डालगोना',
+  r7_title: 'डालगोना कॉफी · <em>फेंटी हुई, बादल जैसी</em>',
+  r7_summary: 'साउथ कोरिया से आई एक क्रीमी, बादल जैसी फेंटी हुई कॉफी जो लॉकडाउन में पूरी दुनिया में वायरल हो गई थी। 1:1:1 का अनुपात इसका जादुई फॉर्मूला है — बराबर मात्रा में इंस्टेंट कॉफी, चीनी और गर्म पानी फेंट कर हल्के सुनहरे रंग का गाढ़ा झाग बनाते हैं और इसे ठंडे या गर्म दूध के ऊपर डालते हैं।',
+  r7_dose_sub: '2 चम्मच इंस्टेंट कॉफी', r7_water_sub: 'सिर्फ 2 चम्मच — घोलने के लिए',
+  r7_grind_v: 'लागू नहीं', r7_grind_sub: 'पानी में घुलने वाले दाने',
+  r7_temp_sub: 'बस इतना कि कॉफी घुल जाए',
+  r7_total_sub: '5–6 मिनट (ज़्यादातर फेंटने में)', r7_yield_sub: 'एक लंबा गिलास · 200ml दूध',
+  r7_s1_t: 'तीनों चीज़ें एक साथ मिलाएं',
+  r7_s1_p: 'एक गहरे बर्तन में 2 चम्मच इंस्टेंट कॉफी, 2 चम्मच चीनी और 2 चम्मच गर्म पानी डालें। अनुपात हमेशा 1:1:1 रखें — कॉफी, चीनी और पानी बराबर। यही डालगोना का जादुई फॉर्मूला है, इसे सही रखो तो आगे का काम अपने आप हो जाता है।',
+  r7_s1_time: '0:00 – 0:30',
+  r7_s2_t: 'हाथ से ज़ोर-ज़ोर से फेंटें',
+  r7_s2_p: 'चम्मच या काँटे से इस मिश्रण को 3-4 मिनट तक गोल-गोल तेज़ी से फेंटें। आप देखेंगे कि यह बदलती जाएगी: काला तरल → हल्का भूरा → गाढ़ा सुनहरा झाग। इसे तब तक फेंटते रहें जब तक यह व्हिप्ड क्रीम जैसी सख्त चोटियाँ (stiff peaks) न बनाने लगे। हाँ, हाथ ज़रूर दुखेगा — यही तो असली मज़ा है!',
+  r7_s2_time: '3–4 मिनट फेंटें',
+  r7_s3_t: 'गाढ़ापन चेक करें',
+  r7_s3_p: 'फेंटी हुई कॉफी तब तैयार है जब यह गाढ़ी, चमकदार और हल्की सुनहरी हो जाए — चम्मच पर इसकी आकृति बननी चाहिए और यह वापस नहीं गिरनी चाहिए। अगर अभी भी पतली या काली है, तो 60 सेकंड और फेंटें। सख्त चोटियाँ बनें = काम हो गया।',
+  r7_s3_time: 'ज़रूरत हो तो 60 सेकंड और',
+  r7_s4_t: 'दूध तैयार करें',
+  r7_s4_p: 'ठंडी डालगोना के लिए: एक लंबे गिलास में 4 बर्फ के टुकड़े डालें और 200ml ठंडा दूध डालें। गर्म डालगोना के लिए: 200ml दूध हल्का गर्म कर लें। दोनों ही तरीकों में गिलास का ऊपरी 1/3 हिस्सा खाली छोड़ें — वहीं तो झाग का ताज सजेगा।',
+  r7_s4_time: 'गिलास तैयार करें',
+  r7_s5_t: 'झाग को ऊपर सजाएं',
+  r7_s5_p: 'चम्मच की मदद से फेंटी हुई कॉफी का झाग धीरे-धीरे दूध के ऊपर डालें और फैलाएं। दिल खोलकर डालें और इसे शान से ऊपर बैठा रहने दें — सफ़ेद दूध पर सुनहरे झाग का यह कंट्रास्ट ही असली डालगोना का सिग्नेचर लुक है।',
+  r7_s5_time: 'सजाएं',
+  r7_s6_t: 'गार्निश और परोसें',
+  r7_s6_p: 'चाहें तो ऊपर से चुटकी भर इंस्टेंट कॉफी पाउडर या कोको पाउडर छिड़कें — कैफे जैसा फिनिश आ जाएगा। पीने से पहले हमेशा एक बार चलाएं — झाग को दूध में मिलाएं ताकि हर घूंट में मीठा-कड़वा स्वाद आए, वरना सारा स्वाद ऊपर ही रह जाएगा।',
+  r7_s6_time: 'परोसें',
+  r7_tip1: 'गहरा बर्तन इस्तेमाल करें, चपटा नहीं — गहराई होने से झाग ऊपर की तरफ बढ़ता है, बाहर नहीं छलकता।',
+  r7_tip2: 'हैंड व्हिस्क या इलेक्ट्रिक बीटर से 4 मिनट का काम 90 सेकंड में हो जाता है। मिल्क फ्रोदर भी काम कर जाएगा।',
+  r7_tip3: 'सफ़ेद चीनी की जगह ब्राउन शुगर डालें — स्वाद टॉफी जैसा गहरा आएगा।',
+  r7_tip4: 'फ्रीज़-ड्राइड इंस्टेंट कॉफी (जैसे Nescafé Gold) सबसे अच्छी है — स्प्रे-ड्राइड भी फेंट तो जाती है, पर स्वाद हल्का रह जाता है।',
+  r7_tip5: 'झाग ज़्यादा बना लें और बंद डिब्बे में फ्रिज में रख दें — 3 दिन तक फूला हुआ और ताज़ा रहता है।',
+  r7_mis1: 'इंस्टेंट की जगह एस्प्रेसो पाउडर या पिसी हुई कॉफी इस्तेमाल करना — सिर्फ इंस्टेंट कॉफी ही फेंटने पर सख्त चोटियाँ बनाती है। पिसी हुई कॉफी बस वहीं की वहीं पड़ी रहेगी।',
+  r7_mis2: 'चीनी कम करना या न डालना — यहाँ चीनी सिर्फ मिठास के लिए नहीं, झाग को टिकाए रखने के लिए है। कम चीनी मतलब झाग जल्दी बैठ जाएगा।',
+  r7_mis3: 'गर्म पानी की जगह ठंडा या गुनगुना पानी डालना — दानों को पहले पूरी तरह घुलना ज़रूरी है, वरना झाग में गुठलियाँ रह जाएंगी।',
+  r7_mis4: 'जब झाग अभी भी हल्का भूरा और बहता हुआ हो तभी रुक जाना — जब तक हल्का सुनहरा और सख्त न हो जाए, फेंटते रहें, वरना दूध में डालते ही डूब जाएगा।',
+  r7_mis5: 'झाग को सीधे दूध में डालकर तुरंत मिला देना — ऊपर सजा हुआ झाग देखने में आधा मज़ा है, और झाग में से होकर पीने का स्वाद ही अलग है।',
+  r7_alt: '<strong>इंस्टेंट कॉफी नहीं है?</strong> अफ़सोस, यह तरीका सिर्फ इंस्टेंट कॉफी से बनता है — पिसी हुई कॉफी फेंटने पर झाग नहीं बनाएगी। <strong>हैंड व्हिस्क नहीं है?</strong> काँटा भी काम कर जाएगा, बस पूरे 4 मिनट लगातार फेंटें। <strong>देसी ट्विस्ट चाहिए?</strong> फेंटने से पहले एक चुटकी इलायची पाउडर डाल दें — एकदम इंडियन कैफे जैसा स्वाद आएगा।'
+};
+
+window.I18N_MR = {
+  brand: 'ब्रूइंग ॲटलस',
+  brand_sub: 'लवाझा गुस्तो क्रेमा · ७ पद्धती',
+  hero_eyebrow: 'लवाझा गुस्तो क्रेमासाठी गाईड',
+  hero_title: 'परफेक्ट कॉफी बनवण्याचे <em>७ सोपे मार्ग</em>',
+  hero_lead: 'लवाझा गुस्तो क्रेमा हे मिडीयम रोस्ट कॉफी ब्लेंड आहे, ज्यामध्ये चॉकलेट आणि हेझलनटची छान चव येते. ही आधीच बारीक दळलेली असते, त्यामुळे तिचा स्वाद एकदम मस्त लागतो. खाली ७ टेस्ट केलेल्या रेसिपी आहेत ज्या नवशिक्यांनाही सहज जमतील.',
+  meta_roast: 'रोस्ट', meta_roast_v: 'मिडीयम',
+  meta_blend: 'ब्लेंड', meta_blend_v: '७०/३० अरेबिका',
+  meta_grind: 'डिफॉल्ट ग्राईंड', meta_grind_v: 'एस्प्रेसो फाईन (बारीक)',
+  meta_methods: 'पद्धती',
+  serv_label: 'किती लोकांसाठी',
+  serv_hint: 'सर्व प्रमाण आपोआप बदलतील',
+  serv_unit_singular: 'सर्व्हिंग',
+  serv_unit_plural: 'सर्व्हिंग्स',
+  unit_metric: 'मेट्रिक', unit_imperial: 'इंपिरियल',
+  tab_1: 'एरोप्रेस · बॅलन्स्ड',
+  tab_2: 'एरोप्रेस · एस्प्रेसो स्टाईल',
+  tab_3: 'मोका पॉट · बॅलन्स्ड',
+  tab_4: 'मोका पॉट · कडक',
+  tab_5: 'इन-कप स्टीप · मशीनशिवाय',
+  tab_6: 'इन्स्टंट · कोल्ड ब्लूम',
+  tab_7: 'डाल्गोना · फेटलेली कॉफी',
+  spec_dose: 'कॉफीचे प्रमाण', spec_water: 'पाणी', spec_grind: 'कॉफीची पावडर',
+  spec_temp: 'पाण्याचे तापमान', spec_total: 'एकूण वेळ', spec_yield: 'किती बनेल',
+  spec_heat: 'गॅसची आच', spec_equip: 'साहित्य',
+  sec_steps: 'कृती',
+  sec_tips: 'स्वाद वाढवण्याच्या टिप्स',
+  sec_mistakes: 'नेहमी होणाऱ्या चुका',
+  sec_alt: 'साहित्य नाही? असा जुगाड करा',
+  diff_label: 'कठीण पातळी',
+  timer_start: 'सुरू करा',
+  timer_done: 'झाले!',
+  voice_brew_started: 'कॉफी बनवायला सुरुवात',
+  voice_done: 'वेळ संपली. पुढच्या स्टेपवर जा.',
+  toast_started: 'टाइमर सुरू',
+  toast_done: 'झाले — पुढची स्टेप',
+  footer: 'प्रेमाने बनवलेले · लवाझा गुस्तो क्रेमासाठी खास रेसिपी · २०२६',
+
+  r1_tag: 'पद्धत ०१ · उलटी एरोप्रेस (इन्व्हर्टेड)',
+  r1_title: 'एरोप्रेस · <em>बॅलन्स्ड कप</em>',
+  r1_summary: 'एकदम स्मूथ आणि चविष्ट कॉफी, ज्यात चॉकलेट आणि भाजलेल्या काजूचा मस्त स्वाद येतो. एरोप्रेस उलटी ठेवून कॉफी बनवल्याने चव खूप छान येते.',
+  r1_dose_sub: 'सुमारे २ भरलेले चमचे', r1_water_sub: '१:१४.५ प्रमाण',
+  r1_grind_v: 'मिडीयम-फाईन', r1_grind_sub: 'बारीक मीठासारखी',
+  r1_temp_sub: 'कमी तापमान = कमी कडवटपणा',
+  r1_total_sub: 'पाणी टाकल्यापासून दाबेपर्यंत', r1_yield_sub: 'एक भरलेला मग',
+  r1_s1_t: 'उलटा सेटअप करा',
+  r1_s1_p: 'एरोप्रेस जोडा आणि प्लंजर १ सेमी आत ढकला. मग एरोप्रेस उलटी ठेवा जेणेकरून उघडा भाग वर राहील. कॅपमधील पेपर फिल्टर गरम पाण्याने धुवून घ्या म्हणजे कागदाचा वास येणार नाही.',
+  r1_s1_time: '०:०० – ०:२०',
+  r1_s2_t: 'कॉफी टाका आणि भिजू द्या (ब्लूम)',
+  r1_s2_p: 'कॉफी टाका. ८५°C गरम पाण्याचा चौथा हिस्सा गोलाकार ओता जेणेकरून सर्व कॉफी ओली होईल. हलकेच फिरवा आणि ३० सेकंद थांबा. याने कॉफीची चव खुलते.',
+  r1_s2_time: '३० सेकंद ब्लूम',
+  r1_s3_t: 'उरलेले पाणी ओता',
+  r1_s3_p: 'आता उरलेले पाणी हळूहळू ओता. चमच्याने हळूवारपणे ३ वेळा ढवळा जेणेकरून कॉफी व्यवस्थित मिक्स होईल.',
+  r1_s3_time: '०:५० – १:१०',
+  r1_s4_t: 'असंच सोडून द्या',
+  r1_s4_p: 'फिल्टरची कॅप लावा आणि ४५ सेकंद एरोप्रेसला अजिबात हात लावू नका. यामुळे कॉफीचा खरा अर्क पाण्यात उतरेल.',
+  r1_s4_time: '४५ सेकंद थांबा',
+  r1_s5_t: 'पलटवा आणि दाबा',
+  r1_s5_p: 'एरोप्रेस काळजीपूर्वक तुमच्या मगवर पलटवा. आता एकदम हळू आणि सतत खाली दाबा (यात २५ ते ३० सेकंद लागले पाहिजेत). फुसकन आवाज आला की लगेच थांबा, नाहीतर कॉफी कडू होईल.',
+  r1_s5_time: '२५–३० सेकंद प्रेस',
+  r1_s6_t: 'हळवी करा (तुमच्या आवडीनुसार)',
+  r1_s6_p: 'जर कॉफी जास्त कडक वाटत असेल तर चवीनुसार ३० ते ५० मिली गरम पाणी मिसळा. मग हलवा, वास घ्या आणि कॉफीचा आनंद घ्या.',
+  r1_s6_time: 'सर्व्ह करा',
+  r1_tip1: 'पेपर फिल्टर नेहमी आधी ओला करा, नाहीतर कॉफीला कागदासारखी चव येते.',
+  r1_tip2: 'फिल्टर केलेले पाणीच वापरा. नळाच्या पाण्यात मिनरल्स जास्त असल्यास कॉफीची चव बिघडते.',
+  r1_tip3: 'सुरुवातीला कॉफी जोरात ढवळू नका, फक्त एरोप्रेस गोल फिरवा.',
+  r1_tip4: 'जर कॉफी खूप कडू वाटली तर पाण्याचे तापमान ८२°C ठेवा.',
+  r1_tip5: 'दाबल्यानंतर ३० सेकंद थांबा — थोडी थंड झाल्यावर कॉफीची चव अजून छान लागते.',
+  r1_mis1: 'उकळते पाणी (१००°C) वापरणे — यामुळे कॉफी जळते आणि कडू होते.',
+  r1_mis2: 'खूप जोरात किंवा वेगाने दाबणे — यामुळे कॉफीची बारीक पावडर कपमध्ये येते.',
+  r1_mis3: 'उलट्या पद्धतीशिवाय खूप बारीक पावडर वापरणे — यामुळे फिल्टर ब्लॉक होतो.',
+  r1_mis4: 'सुरुवातीला कॉफीला भिजू (ब्लूम) न देणे.',
+  r1_mis5: 'वापरलेली कॉफी पुन्हा वापरणे — चव एकदम पाण्यासारखी येते.',
+  r1_alt: '<strong>वजनकाटा नाहीये?</strong> १५ ग्रॅम म्हणजे २ भरलेले चमचे. <strong>थर्मामीटर नाहीये?</strong> पाणी उकळून १ मिनिट थांबा — तापमान बरोबर ८५°C होईल.',
+
+  r2_tag: 'पद्धत ०२ · सरळ एरोप्रेस · दाट',
+  r2_title: 'एरोप्रेस · <em>एस्प्रेसो स्टाईल</em>',
+  r2_summary: 'लहान, स्ट्रॉंग आणि दाट शॉट, ज्यावर थोडासा फेस (क्रेमा) असतो. लाते किंवा कॅपुचिनो बनवण्यासाठी ही पद्धत उत्तम आहे.',
+  r2_dose_sub: '२ भरलेले चमचे', r2_water_sub: '१:३.३ प्रमाण · कमी पाणी',
+  r2_grind_v: 'फाईन (बारीक)', r2_grind_sub: 'बारीक वाळूसारखी',
+  r2_temp_sub: 'दाटपणासाठी थोडे जास्त गरम',
+  r2_total_sub: 'जलद आणि स्ट्रॉंग', r2_yield_sub: 'कडक शॉट',
+  r2_s1_t: 'सरळ सेटअप',
+  r2_s1_p: 'कॅपमध्ये पेपर फिल्टर ठेवा, गरम पाण्याने धुवा आणि एरोप्रेसला जोडा. एका मजबूत कपवर सरळ ठेवा.',
+  r2_s1_time: '०:०० – ०:१५',
+  r2_s2_t: 'कॉफी टाका आणि सपाट करा',
+  r2_s2_p: 'कॉफी टाका आणि एरोप्रेसला हलकेच थाप मारा जेणेकरून पृष्ठभाग सपाट होईल. पृष्ठभाग तिरपा असल्यास चव बिघडते.',
+  r2_s2_time: '०:१५ – ०:२५',
+  r2_s3_t: 'थोडे पाणी टाका (ब्लूम)',
+  r2_s3_p: '९०°C गरम पाण्याचा फक्त अर्धा भाग ओता आणि चमच्याने ५ वेळा वेगाने ढवळा. यामुळेच कॉफीला दाटपणा आणि फेस येतो.',
+  r2_s3_time: '१५ सेकंद ब्लूम',
+  r2_s4_t: 'उरलेले पाणी',
+  r2_s4_p: 'उरलेले पाणी टाका. प्लंजर लावा आणि हलकासा वर खेचा जेणेकरून व्हॅक्यूम तयार होईल आणि पाणी गळणार नाही.',
+  r2_s4_time: '०:४० – ०:५०',
+  r2_s5_t: 'जोरात आणि वेगाने दाबा',
+  r2_s5_p: 'पूर्ण ताकदीने खाली दाबा — नेहमीपेक्षा जास्त जोरात — यात २० ते २५ सेकंद लागले पाहिजेत. याच दाबामुळे एस्प्रेसोसारखी कॉफी बनते.',
+  r2_s5_time: '२०–२५ सेकंद प्रेस',
+  r2_s6_t: 'लगेच सर्व्ह करा',
+  r2_s6_p: 'थेट प्या किंवा गरम दूध ओतून कॅपुचिनो बनवा. यावरचा फेस १ मिनिटात नाहीसा होतो.',
+  r2_s6_time: 'सर्व्ह करा',
+  r2_tip1: 'चमच्याच्या मागच्या बाजूने कॉफी थोडी दाबा (टॅम्प करा) — फेस जास्त चांगला येतो.',
+  r2_tip2: 'तुमचा मग गरम पाण्याने आधीच धुवून गरम करा; थंड कपमुळे एस्प्रेसोची चव जाते.',
+  r2_tip3: 'जर कॉफी थोडी फिकी वाटत असेल तर १ ग्रॅम कॉफी अजून टाका.',
+  r2_tip4: 'कॉफी बनवल्याबरोबर ३० सेकंदांच्या आत पिऊन घ्या.',
+  r2_mis1: 'खूप जास्त पाणी टाकणे — ७० मिली पेक्षा जास्त पाणी टाकल्यास कॉफीची चव खराब होते.',
+  r2_mis2: 'हळूहळू प्रेस करणे — इथे आपल्याला जास्त प्रेशरची गरज आहे.',
+  r2_mis3: 'थंड पाणी वापरणे — कॉफी अगदीच बेचव बनेल.',
+  r2_mis4: 'सुरुवातीला कॉफी न ढवळणे.',
+  r2_mis5: 'मशीनसारख्या फेसाची अपेक्षा करणे — एरोप्रेसमध्ये मशीनसारखा प्रेशर बनत नाही.',
+  r2_alt: '<strong>कॉफी ढवळायला चमचा नाही?</strong> बटर नाईफ वापरा. <strong>मेटल फिल्टर नाहीये?</strong> दोन पेपर फिल्टर एकत्र वापरा.',
+
+  r3_tag: 'पद्धत ०३ · ३-कप मोका पॉट',
+  r3_title: 'मोका पॉट · <em>बॅलन्स्ड कप</em>',
+  r3_summary: 'मोका पॉटची ही रेसिपी कॉफीला करपण्यापासून वाचवते आणि तिची चव एकदम स्मूथ ठेवते.',
+  r3_dose_sub: '३-कप बास्केट हलकी भरलेली', r3_water_sub: 'उकळलेले पाणी, वाल्व्हच्या खाली',
+  r3_grind_v: 'मिडीयम-फाईन', r3_grind_sub: 'एस्प्रेसोपेक्षा थोडे जाड',
+  r3_temp_sub: 'आधी उकळलेले (खूप महत्त्वाचे)',
+  r3_heat_v: 'मंद–मध्यम', r3_heat_sub: 'गडबड करू नका',
+  r3_total_sub: 'गॅसवर ठेवल्यापासून',
+  r3_s1_t: 'पाणी आधी उकळून घ्या',
+  r3_s1_p: 'केटलमध्ये पाणी उकळा आणि मोका पॉटच्या खालच्या भागात ओता (सेफ्टी वाल्व्हच्या खालीच ठेवा). उकळलेले पाणी वापरणे ही मोका पॉटची सर्वात मोठी सिक्रेट आहे.',
+  r3_s1_time: '०:०० – ०:३०',
+  r3_s2_t: 'बास्केट भरा',
+  r3_s2_p: 'कॉफी बास्केटमध्ये टाका आणि बोटाने फक्त सपाट करा. तिला अजिबात दाबू नका (टॅम्प करू नका) नाहीतर कॉफी कडू होईल.',
+  r3_s2_time: '०:३० – ०:५०',
+  r3_s3_t: 'सावधगिरीने जोडा',
+  r3_s3_p: 'खालचा भाग गरम असल्याने तो टॉवेलने धरा आणि वरचा भाग घट्ट बसवा. मोका पॉट मंद-मध्यम आचेवर ठेवा आणि झाकण उघडेच ठेवा.',
+  r3_s3_time: '०:५० – १:१०',
+  r3_s4_t: 'कॉफी वर येण्याची वाट पाहा',
+  r3_s4_p: 'दीड ते दोन मिनिटांत तुम्हाला मधाच्या रंगाची कॉफी हळूहळू वर येताना दिसेल.',
+  r3_s4_time: '९०–१२० सेकंद',
+  r3_s5_t: 'योग्य वेळी गॅस बंद करा',
+  r3_s5_p: 'जेव्हा कॉफीचा रंग पिवळसर होईल आणि बुडबुडे फुटण्याचा (फुसफुस) आवाज येईल, तेव्हा लगेच गॅस बंद करा आणि मोका पॉटचा खालचा भाग ५ सेकंदांसाठी ओल्या टॉवेलवर ठेवा.',
+  r3_s5_time: '~३:०० मिनिटांवर',
+  r3_s6_t: 'ढवळा आणि सर्व्ह करा',
+  r3_s6_p: 'वरच्या भागात जमा झालेली कॉफी चमच्याने हलवा. थेट प्या किंवा गरम पाणी टाकून अमेरिकानो बनवा.',
+  r3_s6_time: 'सर्व्ह करा',
+  r3_tip1: 'उकळलेले पाणी वापरणे अनिवार्य आहे. थंड पाण्याने सुरुवात केल्यास कॉफी करपते.',
+  r3_tip2: 'आच नेहमी मंद किंवा मध्यम ठेवा. मोठ्या गॅसवर कॉफी जळून जाईल.',
+  r3_tip3: 'मोका पॉट फक्त गरम पाण्याने धुवा. साबण लावल्यास कॉफीची चव अनेक आठवडे खराब येते.',
+  r3_tip4: 'फुसफुस आवाज आला की समजायचं कॉफीची चव बिघडायला लागलीये, लगेच गॅसवरून काढा.',
+  r3_mis1: 'वाल्व्हच्या वरपर्यंत पाणी भरणे — हे धोकादायक असू शकते.',
+  r3_mis2: 'कॉफी दाबून भरणे — यामुळे प्रेशर वाढून कॉफी बाहेर उडते.',
+  r3_mis3: 'आवाज आल्यावरही मोका पॉट गॅसवरच ठेवणे.',
+  r3_mis4: 'मोका पॉटमध्ये थंड पाणी भरून गॅसवर ठेवणे.',
+  r3_alt: '<strong>दुसऱ्या साईझचा मोका पॉट आहे?</strong> प्रमाण तेच ठेवा — १० मिली पाण्यासाठी १ ग्रॅम कॉफी.',
+
+  r4_tag: 'पद्धत ०४ · इटालियन स्टाईल · कडक',
+  r4_title: 'मोका पॉट · <em>एस्प्रेसो स्टाईल कडक</em>',
+  r4_summary: 'दाट आणि एकदम स्ट्रॉंग — अगदी इटलीमध्ये जशी सकाळची कॉफी असते तशी. दुधाच्या कॉफीसाठी ही पद्धत उत्तम आहे.',
+  r4_dose_sub: 'बास्केट पूर्ण भरलेली', r4_water_sub: 'वाल्व्हच्या थोडे खाली (कमी पाणी)',
+  r4_grind_v: 'फाईन (बारीक)', r4_grind_sub: 'दाणेदार साखरेसारखी',
+  r4_temp_sub: 'आधी उकळलेले',
+  r4_heat_v: 'मध्यम', r4_heat_sub: 'जास्त प्रेशरसाठी',
+  r4_yield_sub: '२ लहान इटालियन कप',
+  r4_s1_t: 'पाणी उकळा आणि भरा',
+  r4_s1_p: 'पाणी उकळून मोका पॉटच्या खालच्या भागात भरा. पाणी थोडे कमी ठेवा जेणेकरून कॉफी जास्त दाट बनेल.',
+  r4_s1_time: '०:०० – ०:३०',
+  r4_s2_t: 'बास्केट पूर्ण भरा',
+  r4_s2_p: 'कॉफी बास्केटच्या काठापेक्षा थोडी वरपर्यंत भरा आणि मग बोटाने सपाट करा. तिला दाबू नका.',
+  r4_s2_time: '०:३० – १:००',
+  r4_s3_t: 'जोडा आणि मध्यम आचेवर ठेवा',
+  r4_s3_p: 'घट्ट बंद करून मध्यम आचेवर ठेवा (बॅलन्स्ड पद्धतीपेक्षा थोडी जास्त आच). वेगात वाढणाऱ्या प्रेशरमुळेच एस्प्रेसोसारखा दाटपणा येईल.',
+  r4_s3_time: '१:०० – १:१५',
+  r4_s4_t: 'पहिल्या फेसाकडे (क्रेमा) लक्ष ठेवा',
+  r4_s4_p: '१-१.५ मिनिटांत सोनेरी-तपकिरी रंगाची दाट कॉफी वर यायला लागेल. पहिल्या १० सेकंदांत सर्वात मस्त फेस येतो.',
+  r4_s4_time: '६०–९० सेकंद',
+  r4_s5_t: 'लगेच गॅसवरून काढा',
+  r4_s5_p: 'रंग फिका झाला किंवा आवाज बदलला की लगेच आच बंद करा आणि तळ ओल्या टॉवेलवर थंड करा. थोडा जरी उशीर झाला तरी कॉफी जळेल.',
+  r4_s5_time: '~२:३० मिनिटांवर',
+  r4_s6_t: 'ओता आणि हळू हळू प्या',
+  r4_s6_p: 'लहान कपमध्ये ओता आणि इटालियन स्टाईलने प्या किंवा गरम दूध टाकून स्टोव्हटॉप कॅपुचिनो बनवा.',
+  r4_s6_time: 'सर्व्ह करा',
+  r4_tip1: '"क्रेमा बूस्टर" युक्ती: सुरुवातीची ५ मिली कॉफी कपमध्ये १ चमचा साखरेसोबत घ्या आणि चमच्याने १ मिनिट फेटा. फेस मस्त येतो.',
+  r4_tip2: 'तुमचा कॉफी कप उकळत्या पाण्याने आधी गरम करून घ्या.',
+  r4_tip3: 'दुधात कॉफी टाकताना कॉफी आधी टाका आणि वरून दूध ओता.',
+  r4_mis1: 'मोठ्या गॅसवर कॉफी लवकर आणि कडक बनेल असा विचार करणे — याने कॉफी फक्त करपते.',
+  r4_mis2: 'बास्केटमध्ये कॉफी दाबून भरणे.',
+  r4_mis3: 'तसल्ली करण्यासाठी कॉफी गॅसवर खूप वेळ ठेवणे.',
+  r4_alt: '<strong>मोका पॉट नाहीये?</strong> एरोप्रेसची एस्प्रेसो स्टाईल (पद्धत ०२) वापरून पहा.',
+
+  r5_tag: 'पद्धत ०५ · थेट कपमध्ये (कोपी टुब्रुक / मड कॉफी)',
+  r5_title: 'इन-कप ब्रू · <em>कोणत्याही मशीनशिवाय</em>',
+  r5_summary: 'एरोप्रेस किंवा मोका पॉट नाहीये? काही हरकत नाही. थेट कपात कॉफी बनवण्याची ही पद्धत (ज्याला मड कॉफी म्हणतात) गरम पाण्याचा वापर करून एकदम कडक आणि चविष्ट कॉफी बनवते. फक्त गरम पाणी आणि थोडा वेळ हवा.',
+  r5_dose_sub: '१५ ग्रॅम (२ मोठे चमचे)', r5_water_sub: 'प्रत्येक कपासाठी',
+  r5_grind_v: 'मिडीयम-फाईन', r5_grind_sub: 'रेडीमेड पावडर उत्तम',
+  r5_temp_sub: '९०°C (उकळल्यानंतर १ मिनिट)',
+  r5_total_sub: '४ मिनिटे ठेवणं + २ मिनिटे वाट पाहणं',
+  r5_yield_sub: 'एक भरलेला मग',
+  r5_s1_t: 'मग गरम करून घ्या',
+  r5_s1_p: 'तुमच्या मगमध्ये गरम पाणी भरा, ३० सेकंद ठेवा आणि मग पाणी फेकून द्या. यामुळे मग गरम राहतो आणि कॉफी बनवताना लवकर थंड होत नाही.',
+  r5_s1_time: '०:०० – ०:३०',
+  r5_s2_t: 'कॉफीची पावडर टाका',
+  r5_s2_p: 'तुमच्या रिकाम्या आणि गरम मगमध्ये १५ ग्रॅम लवाझा गुस्तो क्रेमा (सुमारे २ भरलेले चमचे) टाका.',
+  r5_s2_time: '०:३० – ०:४०',
+  r5_s3_t: 'गरम पाणी ओता',
+  r5_s3_p: '२०० मिली गरम पाणी (९०°C) गोलाकार फिरवत ओता. कॉफीची सर्व पावडर व्यवस्थित भिजली पाहिजे याची काळजी घ्या.',
+  r5_s3_time: '०:४० – ०:५५',
+  r5_s4_t: 'असंच ठेवून द्या',
+  r5_s4_p: 'आता मगला अजिबात हात लावू नका. वरती कॉफीचा एक थर (क्रस्ट) तयार होईल. हा थर कॉफीचा स्वाद आणि उष्णता बाहेर जाऊ देत नाही.',
+  r5_s4_time: '४ मिनिटे थांबा',
+  r5_s5_t: 'वरचा थर मोडा',
+  r5_s5_p: 'एक चमचा घ्या आणि वरच्या थराला हलकेच ३ वेळा ढवळा. असं केल्यावर बहुतेक पावडर खाली बसेल. तुम्हाला कॉफी अजून स्वच्छ हवी असल्यास वर आलेला फेस चमच्याने काढून टाका.',
+  r5_s5_time: 'थर मोडा',
+  r5_s6_t: 'खाली बसू द्या आणि प्या',
+  r5_s6_p: 'आणखी २ मिनिटे वाट पाहा. यामुळे कॉफी पिण्याइतपत थंड होईल आणि उरलेले बारीक कणही मगच्या तळाशी बसतील. आता सावकाश प्या.',
+  r5_s6_time: '२ मिनिटे वाट पाहा',
+  r5_tip1: 'शक्य असल्यास उंच मग वापरा — म्हणजे कॉफीचे कण तळाला बसायला जास्त जागा मिळेल आणि ते तुमच्या तोंडात येणार नाहीत.',
+  r5_tip2: 'जर तुम्ही घरी कॉफी दळत असाल, तर ती थोडी जाडसर दळा जेणेकरून पावडर लवकर खाली बसेल.',
+  r5_tip3: 'मग मधला शेवटचा घोट पिऊ नका, त्यात कॉफीचे कण (मातीसारखे) असतात आणि ते खूप कडू लागतात.',
+  r5_tip4: 'थर मोडल्यावर वरचा फेस काढून टाकल्यास कॉफीची कडवटपणा बरीच कमी होते.',
+  r5_tip5: 'पूर्ण ४ मिनिटे वाट पाहाच. या पद्धतीत पाण्याला कॉफीचा स्वाद शोषून घ्यायला वेळ लागतो.',
+  r5_mis1: 'एकदम उकळते पाणी (१००°C) ओतणे — कॉफी जास्त वेळ पाण्यात राहणार असल्याने ती जळून जाईल.',
+  r5_mis2: 'पाणी ओतल्याबरोबर लगेच कॉफी ढवळणे — यामुळे स्वाद बाहेर निघून जातो आणि कॉफी लवकर थंड होते.',
+  r5_mis3: 'घाईघाईत पिणे — कण खाली बसण्याची वाट न पाहिल्यास ते तोंडात येतील.',
+  r5_mis4: 'खूप कमी कॉफी वापरणे — या पद्धतीत चांगली चव येण्यासाठी योग्य प्रमाणात कॉफी लागते.',
+  r5_mis5: 'शेवटी चमच्याने कॉफी खाली दाबणे — यामुळे कॉफी कडू होते.',
+  r5_alt: '<strong>तोंडात कण येण्याची भीती वाटतेय?</strong> ४ मिनिटांनंतर चहाच्या गाळणीने कॉफी दुसऱ्या कपमध्ये गाळून घ्या.',
+
+  r6_tag: 'पद्धत ०६ · नेस्कॅफे / इन्स्टंट कॉफी',
+  r6_title: 'इन्स्टंट कॉफी · <em>कोल्ड ब्लूम</em>',
+  r6_summary: 'कोणत्याही इन्स्टंट कॉफीमधून सर्वात छान आणि स्मूथ चव काढण्याची एक खास बारिस्टा ट्रिक. थंड पाण्याचा वापर (कोल्ड ब्लूम) कॉफीचा नाजूक सुगंध गरम पाण्याने जळण्यापासून वाचवतो.',
+  r6_dose_sub: '२ ग्रॅम (१ सपाट चमचा)', r6_water_sub: 'एकूण १५० मिली',
+  r6_grind_v: 'लागू नाही', r6_grind_sub: 'पाण्यात विरघळणारे दाणे',
+  r6_temp_sub: '८५-९०°C',
+  r6_total_sub: '२ मिनिटांपेक्षा कमी', r6_yield_sub: 'एक साधारण मग',
+  r6_s1_t: 'मग गरम करा',
+  r6_s1_p: 'तुमच्या मगमध्ये गरम पाणी भरा, ३० सेकंद ठेवा आणि मग फेकून द्या. आधीच गरम केलेला मग कॉफी जास्त वेळ गरम ठेवतो.',
+  r6_s1_time: '०:०० – ०:३०',
+  r6_s2_t: 'कॉफी टाका',
+  r6_s2_p: 'मगमधून पाणी फेकून द्या. आता ठीक २ ग्रॅम (१ सपाट चमचा) इन्स्टंट कॉफीचे दाणे टाका.',
+  r6_s2_time: '०:३० – ०:३५',
+  r6_s3_t: 'थंड पाण्याची ट्रिक (कोल्ड ब्लूम)',
+  r6_s3_p: 'कॉफीमध्ये ठीक १० मिली (सुमारे २ चमचे) थंड किंवा सामान्य पाणी टाका. चमच्याने वेगाने ढवळा जोपर्यंत एक दाट, गडद पेस्ट तयार होत नाही. हे थंड पाणी कॉफीला गरम पाण्याने जळण्यापासून वाचवते.',
+  r6_s3_time: '१५ सेकंद पेस्ट',
+  r6_s4_t: 'गरम पाणी ओता',
+  r6_s4_p: 'आता पेस्टवर १४० मिली गरम पाणी (८५°C-९०°C) हळूवार गोलाकार ओता. चमच्याने फक्त ३ वेळा खालून वर हलकेच ढवळा.',
+  r6_s4_time: '१५ सेकंद पाणी',
+  r6_s5_t: 'आराम द्या',
+  r6_s5_p: 'कप २० सेकंदांसाठी अजिबात हलवू नका. यामुळे विरघळलेली कॉफी व्यवस्थित सेट होते आणि इन्स्टंट कॉफीची कडू चव मऊ होते.',
+  r6_s5_time: '२० सेकंद आराम',
+  r6_s6_t: 'सर्व्ह करा',
+  r6_s6_p: 'अशीच प्या किंवा गरम फेसाळलेले दूध टाका. दूध टाकणार असल्यास फ्रिजमधून थेट न टाकता ते आधी गरम करा.',
+  r6_s6_time: 'सर्व्ह करा',
+  r6_tip1: 'सुक्या कॉफीमध्ये मिठाचे फक्त २-३ दाणे टाकल्यास कॉफीचा कडवटपणा खूप कमी होतो. कॉफी खारट लागत नाही.',
+  r6_tip2: 'स्प्रे-ड्राय कॉफीऐवजी फ्रीझ-ड्राय इन्स्टंट कॉफी (जसे Nescafé Gold) वापरा. यात कॉफीचा मूळ स्वाद जास्त चांगला टिकतो.',
+  r6_tip3: 'कॅफेसारखी लाते प्यायची असेल तर दूध वेगळे गरम करा आणि बंद जारमध्ये २० सेकंद हलवून मग कॉफीवर ओता.',
+  r6_tip4: 'नेहमी सपाट चमचाभर कॉफी घ्या. इन्स्टंट कॉफी खूप दाट असते, जास्त घेतल्यास औषधासारखी कडू लागते.',
+  r6_tip5: 'पाणी उकळल्यानंतर केटल ६०-९० सेकंद तशीच ठेवा जेणेकरून पाण्याचे तापमान ८५-९०°C पर्यंत येईल.',
+  r6_mis1: 'एकदम १००°C उकळते पाणी ओतणे — हे कॉफीच्या दाण्यांना लगेच जाळते आणि चव कडू, धातूसारखी येते.',
+  r6_mis2: 'कोल्ड ब्लूम (थंड पाणी) न वापरणे — सुक्या दाण्यांवर थेट गरम पाणी टाकल्यास कॉफीचा उरलेला सुगंधही नष्ट होतो.',
+  r6_mis3: 'तयार कॉफी जास्त ढवळणे — यामुळे कॉफीमध्ये अनावश्यक हवा जाते आणि ती पाण्यासारखी पातळ लागते.',
+  r6_mis4: 'गरम कॉफीत थेट फ्रिजमधले थंड दूध टाकणे — यामुळे तापमान एकदम कमी होते आणि चव बिघडते.',
+  r6_mis5: '"कडक कॉफी" बनवण्यासाठी खूप कॉफी टाकणे — कॉफी वाढवण्याऐवजी थोडे पाणी कमी वापरा.',
+
+  r7_tag: 'पद्धत ०७ · व्हायरल फेटलेली कॉफी · डाल्गोना',
+  r7_title: 'डाल्गोना कॉफी · <em>फेटलेली, ढगासारखी</em>',
+  r7_summary: 'साउथ कोरियातून आलेली ही क्रीमी, ढगासारखी फेटलेली कॉफी लॉकडाऊनमध्ये जगभर व्हायरल झाली होती. १:१:१ हे प्रमाण म्हणजे याचा जादूचा फॉर्म्युला — सारख्या प्रमाणात इन्स्टंट कॉफी, साखर आणि गरम पाणी फेटून सोनेरी रंगाचा दाट फेस तयार केला जातो आणि तो थंड किंवा गरम दुधावर ओतला जातो.',
+  r7_dose_sub: '२ चमचे इन्स्टंट कॉफी', r7_water_sub: 'फक्त २ चमचे — विरघळवायला',
+  r7_grind_v: 'लागू नाही', r7_grind_sub: 'पाण्यात विरघळणारे दाणे',
+  r7_temp_sub: 'फक्त कॉफी विरघळेल इतकेच',
+  r7_total_sub: '५-६ मिनिटे (बहुतेक फेटण्यात)', r7_yield_sub: 'एक उंच ग्लास · २०० मिली दूध',
+  r7_s1_t: 'तिन्ही गोष्टी एकत्र करा',
+  r7_s1_p: 'एका खोलगट भांड्यात २ चमचे इन्स्टंट कॉफी, २ चमचे साखर आणि २ चमचे गरम पाणी टाका. प्रमाण नेहमी १:१:१ ठेवा — कॉफी, साखर आणि पाणी सारख्या प्रमाणात. हाच डाल्गोनाचा जादूचा फॉर्म्युला आहे, हे एकदा बरोबर ठेवले की पुढचे काम आपोआप होते.',
+  r7_s1_time: '०:०० – ०:३०',
+  r7_s2_t: 'हाताने जोरात फेटा',
+  r7_s2_p: 'चमच्याने किंवा काट्याने हे मिश्रण ३-४ मिनिटे गोल गोल वेगाने फेटा. तुम्हाला बदल दिसेल: काळसर पातळ → फिकट तपकिरी → दाट सोनेरी फेस. व्हिप्ड क्रीमसारख्या ताठ टिप्स (stiff peaks) येईपर्यंत फेटत रहा. हो, हात नक्की दुखेल — हीच तर खरी मजा आहे!',
+  r7_s2_time: '३-४ मिनिटे फेटा',
+  r7_s3_t: 'घट्टपणा तपासा',
+  r7_s3_p: 'फेटलेली कॉफी तेव्हाच तयार म्हणायची जेव्हा ती दाट, चकचकीत आणि फिकट सोनेरी होईल — चमच्यावर तिचा आकार टिकला पाहिजे, परत खाली पडता कामा नये. अजून पातळ किंवा गडद असेल तर अजून ६० सेकंद फेटा. ताठ टिप्स आल्या = झाले काम.',
+  r7_s3_time: 'गरज पडल्यास ६० सेकंद अजून',
+  r7_s4_t: 'दूध तयार करा',
+  r7_s4_p: 'थंड डाल्गोनासाठी: एका उंच ग्लासमध्ये ४ बर्फाचे क्यूब टाका आणि २०० मिली थंड दूध ओता. गरम डाल्गोनासाठी: २०० मिली दूध हलके गरम करा. कोणत्याही प्रकारात ग्लासचा वरचा १/३ भाग रिकामा ठेवा — तिथेच तर फेसाचा मुकुट बसणार आहे.',
+  r7_s4_time: 'ग्लास तयार करा',
+  r7_s5_t: 'फेस वर सजवा',
+  r7_s5_p: 'चमच्याने फेटलेली कॉफी हळूहळू दुधावर ओता आणि पसरवा. भरभरून टाका आणि तो वर डौलात बसू द्या — पांढऱ्या दुधावरचा सोनेरी फेसाचा कॉन्ट्रास्ट हाच तर डाल्गोनाचा सिग्नेचर लुक आहे.',
+  r7_s5_time: 'सजवा',
+  r7_s6_t: 'गार्निश आणि सर्व्ह करा',
+  r7_s6_p: 'इच्छा असल्यास वरून चिमूटभर इन्स्टंट कॉफी पावडर किंवा कोको पावडर भुरभुरा — कॅफेसारखा फिनिश येईल. पिण्यापूर्वी एकदा नक्की ढवळा — फेस दुधात मिसळवा म्हणजे प्रत्येक घोटात गोड-कडवट चव येईल, नाहीतर सगळी चव वरच राहून जाईल.',
+  r7_s6_time: 'सर्व्ह करा',
+  r7_tip1: 'खोलगट भांडे वापरा, सपाट नको — खोली असल्यामुळे फेस वरच्या दिशेने वाढतो, बाहेर सांडत नाही.',
+  r7_tip2: 'हँड व्हिस्क किंवा इलेक्ट्रिक बीटर वापरल्यास ४ मिनिटांचे काम ९० सेकंदात होते. मिल्क फ्रोदरही चालतो.',
+  r7_tip3: 'पांढऱ्या साखरेऐवजी ब्राऊन शुगर वापरा — चव टॉफीसारखी अधिक खोल येते.',
+  r7_tip4: 'फ्रीझ-ड्राय इन्स्टंट कॉफी (जसे Nescafé Gold) सर्वात छान फेटली जाते — स्प्रे-ड्रायही फेटली जाते, पण चव हलकी राहते.',
+  r7_tip5: 'जास्त फेस बनवून बंद डब्यात फ्रिजमध्ये ठेवला, तर ३ दिवस फुलतच राहतो.',
+  r7_mis1: 'इन्स्टंटऐवजी एस्प्रेसो पावडर किंवा दळलेली कॉफी वापरणे — फक्त इन्स्टंट कॉफीच फेटल्यावर ताठ टिप्स देते. दळलेली कॉफी तशीच पडून राहते.',
+  r7_mis2: 'साखर कमी करणे किंवा न टाकणे — इथे साखर फक्त गोडव्यासाठी नाही, फेस टिकवण्यासाठीही आहे. कमी साखर म्हणजे फेस लगेच बसतो.',
+  r7_mis3: 'गरम पाण्याऐवजी थंड किंवा कोमट पाणी टाकणे — दाणे आधी पूर्ण विरघळणे गरजेचे आहे, नाहीतर फेसात गुठळ्या राहतात.',
+  r7_mis4: 'फेस अजून फिकट तपकिरी आणि वाहता असतानाच थांबणे — सोनेरी आणि ताठ होईपर्यंत फेटत रहा, नाहीतर दुधात टाकल्यावर बुडून जाईल.',
+  r7_mis5: 'फेस सरळ दुधात ओतून लगेच ढवळणे — वर सजलेला फेस पाहण्यात अर्धी मजा आहे, आणि फेसातून पिण्याची चव वेगळीच असते.',
+  r7_alt: '<strong>इन्स्टंट कॉफी नाहीये?</strong> ही पद्धत फक्त इन्स्टंट कॉफीनेच जमते — दळलेली कॉफी फेटल्यावर फेस येणार नाही. <strong>हँड व्हिस्क नाही?</strong> काटाही चालतो, फक्त पूर्ण ४ मिनिटे सलग फेटा. <strong>देसी ट्विस्ट हवा?</strong> फेटण्यापूर्वी एक चिमूट वेलची पावडर टाका — एकदम इंडियन कॅफेसारखी चव येईल.'
+};
+
+</script>
+
+<script>
+const RECIPES = [
+  {
+    id: 'aero-balanced', tagKey: 'r1_tag', titleKey: 'r1_title', summaryKey: 'r1_summary', difficulty: 2,
+    specs: [
+      { labelKey: 'spec_dose', coffee: 15, unit: 'g', subKey: 'r1_dose_sub' },
+      { labelKey: 'spec_water', water: 220, unit: 'ml', subKey: 'r1_water_sub' },
+      { labelKey: 'spec_grind', valueKey: 'r1_grind_v', subKey: 'r1_grind_sub' },
+      { labelKey: 'spec_temp', value: 85, unit: '°C', subKey: 'r1_temp_sub' },
+      { labelKey: 'spec_total', value: '2:00', subKey: 'r1_total_sub' },
+      { labelKey: 'spec_yield', yieldVal: 200, unit: 'ml', subKey: 'r1_yield_sub' }
+    ],
+    steps: [
+      { titleKey: 'r1_s1_t', textKey: 'r1_s1_p', timeKey: 'r1_s1_time' },
+      { titleKey: 'r1_s2_t', textKey: 'r1_s2_p', timeKey: 'r1_s2_time', timer: 30 },
+      { titleKey: 'r1_s3_t', textKey: 'r1_s3_p', timeKey: 'r1_s3_time', timer: 20 },
+      { titleKey: 'r1_s4_t', textKey: 'r1_s4_p', timeKey: 'r1_s4_time', timer: 45 },
+      { titleKey: 'r1_s5_t', textKey: 'r1_s5_p', timeKey: 'r1_s5_time', timer: 28 },
+      { titleKey: 'r1_s6_t', textKey: 'r1_s6_p', timeKey: 'r1_s6_time' }
+    ],
+    tipsKey: ['r1_tip1','r1_tip2','r1_tip3','r1_tip4','r1_tip5'],
+    mistakesKey: ['r1_mis1','r1_mis2','r1_mis3','r1_mis4','r1_mis5'],
+    altKey: 'r1_alt'
+  },
+  {
+    id: 'aero-espresso', tagKey: 'r2_tag', titleKey: 'r2_title', summaryKey: 'r2_summary', difficulty: 3,
+    specs: [
+      { labelKey: 'spec_dose', coffee: 18, unit: 'g', subKey: 'r2_dose_sub' },
+      { labelKey: 'spec_water', water: 60, unit: 'ml', subKey: 'r2_water_sub' },
+      { labelKey: 'spec_grind', valueKey: 'r2_grind_v', subKey: 'r2_grind_sub' },
+      { labelKey: 'spec_temp', value: 90, unit: '°C', subKey: 'r2_temp_sub' },
+      { labelKey: 'spec_total', value: '1:15', subKey: 'r2_total_sub' },
+      { labelKey: 'spec_yield', yieldVal: 50, unit: 'ml', subKey: 'r2_yield_sub' }
+    ],
+    steps: [
+      { titleKey: 'r2_s1_t', textKey: 'r2_s1_p', timeKey: 'r2_s1_time' },
+      { titleKey: 'r2_s2_t', textKey: 'r2_s2_p', timeKey: 'r2_s2_time' },
+      { titleKey: 'r2_s3_t', textKey: 'r2_s3_p', timeKey: 'r2_s3_time', timer: 15 },
+      { titleKey: 'r2_s4_t', textKey: 'r2_s4_p', timeKey: 'r2_s4_time' },
+      { titleKey: 'r2_s5_t', textKey: 'r2_s5_p', timeKey: 'r2_s5_time', timer: 22 },
+      { titleKey: 'r2_s6_t', textKey: 'r2_s6_p', timeKey: 'r2_s6_time' }
+    ],
+    tipsKey: ['r2_tip1','r2_tip2','r2_tip3','r2_tip4','r2_tip5'],
+    mistakesKey: ['r2_mis1','r2_mis2','r2_mis3','r2_mis4','r2_mis5'],
+    altKey: 'r2_alt'
+  },
+  {
+    id: 'moka-balanced', tagKey: 'r3_tag', titleKey: 'r3_title', summaryKey: 'r3_summary', difficulty: 2,
+    specs: [
+      { labelKey: 'spec_dose', coffee: 15, unit: 'g', subKey: 'r3_dose_sub' },
+      { labelKey: 'spec_water', water: 150, unit: 'ml', subKey: 'r3_water_sub' },
+      { labelKey: 'spec_grind', valueKey: 'r3_grind_v', subKey: 'r3_grind_sub' },
+      { labelKey: 'spec_temp', value: 95, unit: '°C', subKey: 'r3_temp_sub' },
+      { labelKey: 'spec_heat', valueKey: 'r3_heat_v', subKey: 'r3_heat_sub' },
+      { labelKey: 'spec_total', value: '~4:00', subKey: 'r3_total_sub' }
+    ],
+    steps: [
+      { titleKey: 'r3_s1_t', textKey: 'r3_s1_p', timeKey: 'r3_s1_time' },
+      { titleKey: 'r3_s2_t', textKey: 'r3_s2_p', timeKey: 'r3_s2_time' },
+      { titleKey: 'r3_s3_t', textKey: 'r3_s3_p', timeKey: 'r3_s3_time' },
+      { titleKey: 'r3_s4_t', textKey: 'r3_s4_p', timeKey: 'r3_s4_time', timer: 105 },
+      { titleKey: 'r3_s5_t', textKey: 'r3_s5_p', timeKey: 'r3_s5_time', timer: 5 },
+      { titleKey: 'r3_s6_t', textKey: 'r3_s6_p', timeKey: 'r3_s6_time' }
+    ],
+    tipsKey: ['r3_tip1','r3_tip2','r3_tip3','r3_tip4','r3_tip5'],
+    mistakesKey: ['r3_mis1','r3_mis2','r3_mis3','r3_mis4','r3_mis5'],
+    altKey: 'r3_alt'
+  },
+  {
+    id: 'moka-strong', tagKey: 'r4_tag', titleKey: 'r4_title', summaryKey: 'r4_summary', difficulty: 3,
+    specs: [
+      { labelKey: 'spec_dose', coffee: 17, unit: 'g', subKey: 'r4_dose_sub' },
+      { labelKey: 'spec_water', water: 120, unit: 'ml', subKey: 'r4_water_sub' },
+      { labelKey: 'spec_grind', valueKey: 'r4_grind_v', subKey: 'r4_grind_sub' },
+      { labelKey: 'spec_temp', value: 95, unit: '°C', subKey: 'r4_temp_sub' },
+      { labelKey: 'spec_heat', valueKey: 'r4_heat_v', subKey: 'r4_heat_sub' },
+      { labelKey: 'spec_yield', yieldVal: 80, unit: 'ml', subKey: 'r4_yield_sub' }
+    ],
+    steps: [
+      { titleKey: 'r4_s1_t', textKey: 'r4_s1_p', timeKey: 'r4_s1_time' },
+      { titleKey: 'r4_s2_t', textKey: 'r4_s2_p', timeKey: 'r4_s2_time' },
+      { titleKey: 'r4_s3_t', textKey: 'r4_s3_p', timeKey: 'r4_s3_time' },
+      { titleKey: 'r4_s4_t', textKey: 'r4_s4_p', timeKey: 'r4_s4_time', timer: 75 },
+      { titleKey: 'r4_s5_t', textKey: 'r4_s5_p', timeKey: 'r4_s5_time', timer: 5 },
+      { titleKey: 'r4_s6_t', textKey: 'r4_s6_p', timeKey: 'r4_s6_time' }
+    ],
+    tipsKey: ['r4_tip1','r4_tip2','r4_tip3','r4_tip4','r4_tip5'],
+    mistakesKey: ['r4_mis1','r4_mis2','r4_mis3','r4_mis4','r4_mis5'],
+    altKey: 'r4_alt'
+  },
+  {
+    id: 'instant', tagKey: 'r5_tag', titleKey: 'r5_title', summaryKey: 'r5_summary', difficulty: 1,
+    specs: [
+      { labelKey: 'spec_dose', coffee: 15, unit: 'g', subKey: 'r5_dose_sub' },
+      { labelKey: 'spec_water', water: 200, unit: 'ml', subKey: 'r5_water_sub' },
+      { labelKey: 'spec_grind', valueKey: 'r5_grind_v', subKey: 'r5_grind_sub' },
+      { labelKey: 'spec_temp', value: 90, unit: '°C', subKey: 'r5_temp_sub' },
+      { labelKey: 'spec_total', value: '6:00', subKey: 'r5_total_sub' },
+      { labelKey: 'spec_yield', yieldVal: 180, unit: 'ml', subKey: 'r5_yield_sub' }
+    ],
+    steps: [
+      { titleKey: 'r5_s1_t', textKey: 'r5_s1_p', timeKey: 'r5_s1_time' },
+      { titleKey: 'r5_s2_t', textKey: 'r5_s2_p', timeKey: 'r5_s2_time' },
+      { titleKey: 'r5_s3_t', textKey: 'r5_s3_p', timeKey: 'r5_s3_time' },
+      { titleKey: 'r5_s4_t', textKey: 'r5_s4_p', timeKey: 'r5_s4_time', timer: 240 },
+      { titleKey: 'r5_s5_t', textKey: 'r5_s5_p', timeKey: 'r5_s5_time' },
+      { titleKey: 'r5_s6_t', textKey: 'r5_s6_p', timeKey: 'r5_s6_time', timer: 120 }
+    ],
+    tipsKey: ['r5_tip1','r5_tip2','r5_tip3','r5_tip4','r5_tip5'],
+    mistakesKey: ['r5_mis1','r5_mis2','r5_mis3','r5_mis4','r5_mis5'],
+    altKey: 'r5_alt'
+  },
+  {
+    id: 'instant-bloom', tagKey: 'r6_tag', titleKey: 'r6_title', summaryKey: 'r6_summary', difficulty: 1,
+    specs: [
+      { labelKey: 'spec_dose', coffee: 2, unit: 'g', subKey: 'r6_dose_sub' },
+      { labelKey: 'spec_water', water: 150, unit: 'ml', subKey: 'r6_water_sub' },
+      { labelKey: 'spec_grind', valueKey: 'r6_grind_v', subKey: 'r6_grind_sub' },
+      { labelKey: 'spec_temp', value: 90, unit: '°C', subKey: 'r6_temp_sub' },
+      { labelKey: 'spec_total', value: '1:20', subKey: 'r6_total_sub' },
+      { labelKey: 'spec_yield', yieldVal: 150, unit: 'ml', subKey: 'r6_yield_sub' }
+    ],
+    steps: [
+      { titleKey: 'r6_s1_t', textKey: 'r6_s1_p', timeKey: 'r6_s1_time', timer: 30 },
+      { titleKey: 'r6_s2_t', textKey: 'r6_s2_p', timeKey: 'r6_s2_time' },
+      { titleKey: 'r6_s3_t', textKey: 'r6_s3_p', timeKey: 'r6_s3_time', timer: 15 },
+      { titleKey: 'r6_s4_t', textKey: 'r6_s4_p', timeKey: 'r6_s4_time', timer: 15 },
+      { titleKey: 'r6_s5_t', textKey: 'r6_s5_p', timeKey: 'r6_s5_time', timer: 20 },
+      { titleKey: 'r6_s6_t', textKey: 'r6_s6_p', timeKey: 'r6_s6_time' }
+    ],
+    tipsKey: ['r6_tip1','r6_tip2','r6_tip3','r6_tip4','r6_tip5'],
+    mistakesKey: ['r6_mis1','r6_mis2','r6_mis3','r6_mis4','r6_mis5'],
+    altKey: 'r6_alt'
+  },
+  {
+    id: 'dalgona', tagKey: 'r7_tag', titleKey: 'r7_title', summaryKey: 'r7_summary', difficulty: 2,
+    specs: [
+      { labelKey: 'spec_dose', coffee: 4, unit: 'g', subKey: 'r7_dose_sub' },
+      { labelKey: 'spec_water', water: 200, unit: 'ml', subKey: 'r7_water_sub' },
+      { labelKey: 'spec_grind', valueKey: 'r7_grind_v', subKey: 'r7_grind_sub' },
+      { labelKey: 'spec_temp', value: 90, unit: '°C', subKey: 'r7_temp_sub' },
+      { labelKey: 'spec_total', value: '5:30', subKey: 'r7_total_sub' },
+      { labelKey: 'spec_yield', yieldVal: 220, unit: 'ml', subKey: 'r7_yield_sub' }
+    ],
+    steps: [
+      { titleKey: 'r7_s1_t', textKey: 'r7_s1_p', timeKey: 'r7_s1_time' },
+      { titleKey: 'r7_s2_t', textKey: 'r7_s2_p', timeKey: 'r7_s2_time', timer: 210 },
+      { titleKey: 'r7_s3_t', textKey: 'r7_s3_p', timeKey: 'r7_s3_time', timer: 60 },
+      { titleKey: 'r7_s4_t', textKey: 'r7_s4_p', timeKey: 'r7_s4_time' },
+      { titleKey: 'r7_s5_t', textKey: 'r7_s5_p', timeKey: 'r7_s5_time' },
+      { titleKey: 'r7_s6_t', textKey: 'r7_s6_p', timeKey: 'r7_s6_time' }
+    ],
+    tipsKey: ['r7_tip1','r7_tip2','r7_tip3','r7_tip4','r7_tip5'],
+    mistakesKey: ['r7_mis1','r7_mis2','r7_mis3','r7_mis4','r7_mis5'],
+    altKey: 'r7_alt'
+  }
+];
+
+const I18N = { en: window.I18N_EN, hi: window.I18N_HI, mr: window.I18N_MR };
+
+let currentLang = 'en';
+let currentServings = 1;
+let currentUnit = 'metric';
+let voiceEnabled = true;
+let activeTimer = null;
+let activeBtn = null;
+
+function t(key) {
+  return (I18N[currentLang] && I18N[currentLang][key]) || I18N.en[key] || key;
+}
+
+function convertWeight(g) { return (g * 0.03527).toFixed(2); }
+function convertVolume(ml) { return (ml * 0.03381).toFixed(1); }
+
+function formatScaled(value, unit, scale) {
+  const scaled = value * scale;
+  if (currentUnit === 'imperial') {
+    if (unit === 'g') return { val: convertWeight(scaled), unit: 'oz' };
+    if (unit === 'ml') return { val: convertVolume(scaled), unit: 'fl oz' };
+  }
+  const rounded = scaled % 1 === 0 ? scaled : Math.round(scaled * 10) / 10;
+  return { val: rounded, unit: unit };
+}
+
+function renderRecipes() {
+  const root = document.getElementById('recipesRoot');
+  const activeId = document.querySelector('.tab.active')?.dataset.tab || RECIPES[0].id;
+
+  root.innerHTML = RECIPES.map(r => {
+    const isActive = activeId === r.id;
+    const diffBars = Array.from({length:5}, (_,i) => `<span class="${i < r.difficulty ? 'fill' : ''}"></span>`).join('');
+
+    const specsHTML = r.specs.map(s => {
+      let valueHTML = '';
+      let isScaled = false;
+      if (s.coffee !== undefined) {
+        const f = formatScaled(s.coffee, s.unit, currentServings);
+        valueHTML = `${f.val}<small>${f.unit}</small>`;
+        isScaled = currentServings !== 1;
+      } else if (s.water !== undefined) {
+        const f = formatScaled(s.water, s.unit, currentServings);
+        valueHTML = `${f.val}<small>${f.unit}</small>`;
+        isScaled = currentServings !== 1;
+      } else if (s.yieldVal !== undefined) {
+        const f = formatScaled(s.yieldVal, s.unit, currentServings);
+        valueHTML = `~${f.val}<small>${f.unit}</small>`;
+        isScaled = currentServings !== 1;
+      } else if (s.value !== undefined) {
+        valueHTML = s.unit ? `${s.value}<small>${s.unit}</small>` : s.value;
+      } else if (s.valueKey) {
+        valueHTML = t(s.valueKey);
+      }
+      return `
+        <div class="spec-cell">
+          <div class="spec-label">${t(s.labelKey)}</div>
+          <div class="spec-value ${isScaled ? 'scaled' : ''}">${valueHTML}</div>
+          <div class="spec-sub">${t(s.subKey)}</div>
+        </div>`;
+    }).join('');
+
+    const stepsHTML = r.steps.map((step, i) => {
+      const num = String(i+1).padStart(2,'0');
+      const stepTitle = t(step.titleKey).replace(/"/g, '&quot;');
+      const timerHTML = step.timer ? `
+        <button class="timer-btn" data-timer="${step.timer}" data-label="${stepTitle}">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+          ${t('timer_start')}
+        </button>` : '';
+      return `
+        <div class="step">
+          <div class="step-num">${num}</div>
+          <div class="step-content">
+            <h4>${t(step.titleKey)}</h4>
+            <p>${t(step.textKey)}</p>
+          </div>
+          <div class="step-timer">
+            <div class="step-time">${t(step.timeKey)}</div>
+            ${timerHTML}
+          </div>
+        </div>`;
+    }).join('');
+
+    const tipsHTML = r.tipsKey.map(k => `<li>${t(k)}</li>`).join('');
+    const mistakesHTML = r.mistakesKey.map(k => `<li>${t(k)}</li>`).join('');
+
+    return `
+      <section class="recipe-panel ${isActive ? 'active' : ''}" id="${r.id}">
+        <div class="recipe-header">
+          <div>
+            <div class="recipe-tag">${t(r.tagKey)}</div>
+            <h2 class="recipe-title">${t(r.titleKey)}</h2>
+            <p class="recipe-summary">${t(r.summaryKey)}</p>
+          </div>
+          <div class="recipe-difficulty">
+            ${t('diff_label')}
+            <div class="difficulty-bars">${diffBars}</div>
+          </div>
+        </div>
+        <div class="spec-grid">${specsHTML}</div>
+        <div class="section">
+          <h3 class="section-title" data-num="A.">${t('sec_steps')}</h3>
+          <div class="steps">${stepsHTML}</div>
+        </div>
+        <div class="section two-col">
+          <div class="info-card tips-card">
+            <h3>${t('sec_tips')}</h3>
+            <ul>${tipsHTML}</ul>
+          </div>
+          <div class="info-card mistakes-card">
+            <h3>${t('sec_mistakes')}</h3>
+            <ul>${mistakesHTML}</ul>
+          </div>
+        </div>
+        <div class="alt-card">
+          <h3>${t('sec_alt')}</h3>
+          <p>${t(r.altKey)}</p>
+        </div>
+      </section>`;
+  }).join('');
+
+  attachTimerHandlers();
+}
+
+function renderUI() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    el.innerHTML = t(key);
+  });
+  const unitEl = document.getElementById('servUnit');
+  if (unitEl) unitEl.textContent = currentServings === 1 ? t('serv_unit_singular') : t('serv_unit_plural');
+}
+
+function speak(text) {
+  if (!voiceEnabled || !('speechSynthesis' in window)) return;
+  try {
+    window.speechSynthesis.cancel();
+    const utter = new SpeechSynthesisUtterance(text);
+    const langMap = { en: 'en-US', hi: 'hi-IN', mr: 'mr-IN' };
+    utter.lang = langMap[currentLang] || 'en-US';
+    utter.rate = 0.95; utter.pitch = 1; utter.volume = 1;
+    const voices = window.speechSynthesis.getVoices();
+    const baseLang = utter.lang.split('-')[0];
+    const match = voices.find(v => v.lang === utter.lang) ||
+                  voices.find(v => v.lang.startsWith(baseLang)) ||
+                  voices.find(v => v.lang.startsWith('en'));
+    if (match) utter.voice = match;
+    window.speechSynthesis.speak(utter);
+  } catch(e) {}
+}
+
+function fmt(s) {
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return `${m}:${sec.toString().padStart(2,'0')}`;
+}
+
+function showToast(msg) {
+  const toast = document.getElementById('toast');
+  toast.textContent = msg;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 3000);
+}
+
+function stopTimer() {
+  if (activeTimer) clearInterval(activeTimer);
+  activeTimer = null;
+  if (activeBtn) {
+    activeBtn.classList.remove('running');
+    activeBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>' + t('timer_start');
+  }
+  activeBtn = null;
+  document.getElementById('globalTimer').classList.remove('visible');
+}
+
+function attachTimerHandlers() {
+  document.querySelectorAll('.timer-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (activeBtn === btn) { stopTimer(); return; }
+      stopTimer();
+
+      let remaining = parseInt(btn.dataset.timer, 10);
+      const label = btn.dataset.label || 'Timer';
+      activeBtn = btn;
+      btn.classList.add('running');
+      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12"/></svg>' + fmt(remaining);
+
+      const gtLabel = document.getElementById('gtLabel');
+      const gtValue = document.getElementById('gtValue');
+      gtLabel.textContent = label;
+      gtValue.textContent = fmt(remaining);
+      document.getElementById('globalTimer').classList.add('visible');
+
+      speak(t('voice_brew_started') + '. ' + label + '.');
+      showToast(t('toast_started') + ': ' + label);
+
+      activeTimer = setInterval(() => {
+        remaining--;
+        if (remaining <= 0) {
+          clearInterval(activeTimer);
+          activeTimer = null;
+          btn.classList.remove('running');
+          btn.classList.add('done');
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>' + t('timer_done');
+          gtValue.textContent = '0:00';
+
+          speak(t('voice_done'));
+          showToast(t('toast_done'));
+
+          try {
+            const ctx = new (window.AudioContext || window.webkitAudioContext)();
+            for (let i=0; i<3; i++) {
+              const o = ctx.createOscillator();
+              const g = ctx.createGain();
+              o.connect(g); g.connect(ctx.destination);
+              o.frequency.value = 880;
+              g.gain.value = 0.15;
+              o.start(ctx.currentTime + i*0.25);
+              o.stop(ctx.currentTime + i*0.25 + 0.12);
+            }
+          } catch(e) {}
+          if (navigator.vibrate) navigator.vibrate([200,100,200,100,200]);
+
+          setTimeout(() => {
+            btn.classList.remove('done');
+            btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>' + t('timer_start');
+            document.getElementById('globalTimer').classList.remove('visible');
+            activeBtn = null;
+          }, 4500);
+          return;
+        }
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12"/></svg>' + fmt(remaining);
+        gtValue.textContent = fmt(remaining);
+      }, 1000);
+    });
+  });
+}
+
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const target = tab.dataset.tab;
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.recipe-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    const panel = document.getElementById(target);
+    if (panel) panel.classList.add('active');
+    window.scrollTo({ top: document.querySelector('.tabs-wrap').offsetTop - 80, behavior: 'smooth' });
+  });
+});
+
+document.getElementById('themeBtn').addEventListener('click', () => {
+  const current = document.documentElement.dataset.theme;
+  document.documentElement.dataset.theme = current === 'dark' ? 'light' : 'dark';
+});
+
+const voiceBtn = document.getElementById('voiceBtn');
+voiceBtn.addEventListener('click', () => {
+  voiceEnabled = !voiceEnabled;
+  voiceBtn.classList.toggle('muted', !voiceEnabled);
+  if (!voiceEnabled && 'speechSynthesis' in window) window.speechSynthesis.cancel();
+});
+
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.langSet;
+    if (lang === currentLang) return;
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.documentElement.lang = lang;
+    renderUI();
+    renderRecipes();
+  });
+});
+
+const servDisplay = document.getElementById('servDisplay');
+const servPlus = document.getElementById('servPlus');
+const servMinus = document.getElementById('servMinus');
+
+function updateServings(delta) {
+  const next = Math.max(1, Math.min(10, currentServings + delta));
+  if (next === currentServings) return;
+  currentServings = next;
+  servDisplay.textContent = currentServings;
+  document.getElementById('servUnit').textContent = currentServings === 1 ? t('serv_unit_singular') : t('serv_unit_plural');
+  servMinus.disabled = currentServings === 1;
+  servPlus.disabled = currentServings === 10;
+  renderRecipes();
+}
+servPlus.addEventListener('click', () => updateServings(1));
+servMinus.addEventListener('click', () => updateServings(-1));
+servMinus.disabled = true;
+
+document.querySelectorAll('.unit-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.unit-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentUnit = btn.dataset.unit;
+    renderRecipes();
+  });
+});
+
+document.getElementById('gtStop').addEventListener('click', stopTimer);
+
+if ('speechSynthesis' in window) {
+  window.speechSynthesis.getVoices();
+  window.speechSynthesis.onvoiceschanged = () => window.speechSynthesis.getVoices();
+}
+
+renderUI();
+renderRecipes();
+</script>
+</body>
+</html>
